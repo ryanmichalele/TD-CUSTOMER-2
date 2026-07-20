@@ -1,0 +1,29 @@
+[[redirects]]
+  from = "/RS/UN-Display.do"
+  to = "/log-in/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/RS/UN-Submit.do"
+  to = "/dashboard/"
+  status = 303
+
+[[redirects]]
+  from = "/RS/UN-AccountCreate.do"
+  to = "/open-account/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/dashboard"
+  to = "/dashboard/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/log-in"
+  to = "/log-in/index.html"
+  status = 200
+
+[[redirects]]
+  from = "/open-account"
+  to = "/open-account/index.html"
+  status = 200
