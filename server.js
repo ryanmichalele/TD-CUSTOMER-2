@@ -72,6 +72,23 @@ const server = http.createServer((req, res) => {
       return;
     }
 
+    // Route legacy account-number login URLs to the local demo login page.
+    if (requestPath === '/RS/UN-Display.do' || requestPath === '/RS/UN-Display') {
+      sendFile(res, path.join(BASE, 'log-in', 'index.html')).catch(() => send500(res));
+      return;
+    }
+
+    // Route account-number submit to the local demo dashboard.
+    if (requestPath === '/RS/UN-Submit.do') {
+      res.writeHead(303, {
+        'Location': '/dashboard/',
+        'Cache-Control': 'no-store',
+        'Access-Control-Allow-Origin': '*'
+      });
+      res.end();
+      return;
+    }
+
     // Route "Open a New Account" links to onboarding flow
     if (requestPath === '/RS/UN-AccountCreate.do' || requestPath === '/open-account') {
       sendFile(res, path.join(BASE, 'open-account', 'index.html')).catch(() => send500(res));

@@ -4,29 +4,17 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Open a New Account — TreasuryDirect</title>
+  <link rel="stylesheet" type="text/css" href="/styles/style.css">
   <link rel="icon" href="/images/favicon.svg" type="image/svg+xml">
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
+      font-family: 'Public Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', system-ui, sans-serif;
       background: #f0f2f5;
       color: #1a1a2e;
       line-height: 1.5;
       min-height: 100vh;
     }
-
-    /* Gov banner */
-    .gov-banner {
-      background: #0a2e5c;
-      color: #fff;
-      font-size: 0.7rem;
-      padding: 0.4rem 1.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-    .gov-banner .flag { width: 14px; height: auto; opacity: 0.85; }
-    .gov-banner span { opacity: 0.9; }
 
     /* Main wrapper */
     .onboarding-wrapper {
@@ -439,7 +427,6 @@
       .btn-row { flex-direction: column-reverse; }
       .btn-row .btn { width: 100%; justify-content: center; }
       .progress-header { padding: 1rem 1rem 0.5rem; }
-      .gov-banner { padding: 0.3rem 1rem; font-size: 0.65rem; }
     }
 
     @media (max-width: 400px) {
@@ -450,18 +437,179 @@
 </head>
 <body>
 
-<!-- Gov banner -->
-<div class="gov-banner">
-  <span class="flag">&#9733;</span>
-  <span>An official website of the United States government</span>
+<div class="text-white bg-usa-blue-dark" role="banner">
+  <div class="container-xxl">
+    <div class="row">
+      <div class="col-md py-1 media small">
+        <img class="align-self-center mr-2" src="/images/icons/us_flag_small.png" alt="U.S. flag">
+        <div class="media-body">
+          <span class="mr-2">An official website of the United States government</span>
+          <a class="d-block d-md-inline-block text-td-blue-light arrow-collapse" role="button" href="#" data-toggle="collapse" data-target="#official-site-collapse" aria-expanded="false" aria-controls="official-site-collapse">
+            Here's how you know
+            <svg class="bi-chevron-down" width="1.1em" height="1.1em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512"><path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"/></svg>
+          </a>
+        </div>
+      </div>
+      <div class="col-md py-1 border-top border-md-0 border-usa-gray-light small text-md-right">
+        <a class="text-white" href="https://www.treasury.gov" target="_blank" rel="nofollow noopener noreferrer">U.S. Department of the Treasury</a>
+      </div>
+    </div>
+  </div>
+  <div id="official-site-collapse" class="collapse container-xxl border-top border-md-0 border-usa-gray-light">
+    <div class="row">
+      <div class="p-3 col-md-6">
+        <div class="media">
+          <img class="w-2-5em h-2-5em mr-2" src="/images/icons/icon-dot-gov.svg" alt="">
+          <div class="media-body">
+            <strong>Official websites use .gov</strong><br>
+            A <strong>.gov</strong> website belongs to an official government organization in the United States.
+          </div>
+        </div>
+      </div>
+      <div class="p-3 col-md-6">
+        <div class="media">
+          <img class="w-2-5em h-2-5em mr-2" src="/images/icons/icon-https.svg" alt="">
+          <div class="media-body">
+            <strong>Secure .gov websites use HTTPS</strong><br>
+            A <strong>lock</strong> (<span class="icon-lock-white"></span>) or <strong>https://</strong> means you've safely connected to the .gov website. Share sensitive information only on official, secure websites.
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
-<!-- Main wrapper -->
+<header id="header-site" class="bg-white">
+  <div class="container-xxl">
+    <nav class="navbar navbar-expand-lg navbar-td p-0">
+      <a class="navbar-brand d-lg-none py-3" href="/"><img src="/images/logo-treasurydirect-color.svg" alt="TreasuryDirect Home"></a>
+      <button class="navbar-toggler btn btn-outline-td-blue nav-text-small shadow-none" data-toggle="collapse" data-target="#site-nav-collapse" aria-controls="site-nav-collapse" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="align-middle">Menu</span>
+      </button>
+      <div class="collapse navbar-collapse flex-wrap navbars" id="site-nav-collapse">
+        <a class="navbar-brand d-none d-lg-block py-lg-4 order-lg-0" href="/"><img src="/images/logo-treasurydirect-color.svg" alt="TreasuryDirect Home"></a>
+        <div class="navbar-nav ml-lg-auto align-items-center order-lg-2">
+          <a class="btn btn-sm btn-td-orange text-white shadow-none" href="/log-in/">Log In</a>
+          <form id="search-form-page-header" action="https://search.usa.gov/search" accept-charset="UTF-8" method="get" class="ml-lg-3 my-0 py-2">
+            <div class="input-group input-group-sm">
+              <input type="text" name="query" id="query-page-header" autocomplete="off" class="form-control" placeholder="Search&hellip;" aria-label="Search TreasuryDirect" aria-describedby="button-site-search-header-submit">
+              <input name="utf8" type="hidden" value="&#x2713;" aria-label="Search">
+              <input type="hidden" name="affiliate" id="affiliate" value="treasurydirect" aria-label="Search">
+              <div class="input-group-append">
+                <button class="btn btn-td-green font-weight-bold shadow-none" type="submit" id="button-site-search-header-submit" name="commit" data-disable-with="Search" aria-label="Submit">
+                  <span class="icon-search-solid-white"></span>
+                </button>
+              </div>
+            </div>
+          </form>
+        </div>
+        <ul class="navbar-nav nav-text-large order-lg-3 pb-lg-2">
+          <li class="nav-item"><a class="nav-link" href="/"><span class="icon-home-solid-blue"></span></a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="site-nav-savings-bond-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Savings Bonds</a>
+            <div class="dropdown-menu" aria-labelledby="site-nav-savings-bond-link">
+              <div class="dropdown-menu-wrapper">
+                <a class="dropdown-item" href="/savings-bonds/">About U.S. Savings Bonds</a>
+                <a class="dropdown-item" href="/savings-bonds/buy-a-bond/">Buy a Bond</a>
+                <a class="dropdown-item" href="/savings-bonds/gift-a-bond/">Gift a Savings Bond</a>
+                <a class="dropdown-item" href="/savings-bonds/cashing-a-bond/">Cash In a Bond</a>
+                <a class="dropdown-item" href="/savings-bonds/savings-bond-calculator/">Savings Bond Value Calculator</a>
+                <a class="dropdown-item" href="/savings-bonds/manage-bonds/">Manage Bonds</a>
+                <a class="dropdown-item" href="/savings-bonds/forms/">Forms for Savings Bonds</a>
+                <a class="dropdown-item" href="/savings-bonds/treasury-hunt/">Treasury Hunt</a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="site-nav-us-marketable-securities-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Treasury Marketable Securities</a>
+            <div class="dropdown-menu" aria-labelledby="site-nav-us-marketable-securities-link">
+              <div class="dropdown-menu-wrapper">
+                <a class="dropdown-item" href="/marketable-securities/">About Treasury Marketable Securities</a>
+                <a class="dropdown-item" href="/marketable-securities/treasury-bills/">Treasury Bills</a>
+                <a class="dropdown-item" href="/marketable-securities/treasury-bonds/">Treasury Bonds</a>
+                <a class="dropdown-item" href="/marketable-securities/treasury-notes/">Treasury Notes</a>
+                <a class="dropdown-item" href="/marketable-securities/tips/">TIPS</a>
+                <a class="dropdown-item" href="/marketable-securities/floating-rate-notes/">Floating Rate Notes (FRNs)</a>
+                <a class="dropdown-item" href="/marketable-securities/strips/">STRIPS</a>
+                <a class="dropdown-item" href="/marketable-securities/forms/">Forms for Treasury Marketable Securities</a>
+                <a class="dropdown-item" href="/savings-bonds/treasury-hunt/">Treasury Hunt</a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="site-nav-auctions-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Auctions</a>
+            <div class="dropdown-menu" aria-labelledby="site-nav-auctions-link">
+              <div class="dropdown-menu-wrapper">
+                <a class="dropdown-item" href="/auctions/">About Auctions</a>
+                <a class="dropdown-item" href="/auctions/how-auctions-work/">How Auctions Work (Participating)</a>
+                <a class="dropdown-item" href="/auctions/when-auctions-happen/">When Auctions Happen (Schedules)</a>
+                <a class="dropdown-item" href="/auctions/reopenings/">Reopenings</a>
+                <a class="dropdown-item" href="/auctions/announcements-data-results/">Announcements, Data &amp; Results</a>
+                <a class="dropdown-item" href="/auctions/announcements-data-results/buy-backs/">Buyback Announcements and Results</a>
+                <a class="dropdown-item" href="/auctions/upcoming/">Upcoming Auctions</a>
+                <a class="dropdown-item" href="/auctions/results/">Recent Auction Results</a>
+                <a class="dropdown-item" href="/auctions/auction-query/">Auction Search (Query)</a>
+                <a class="dropdown-item" href="/auctions/announcements-data-results/announcement-results-press-releases/treasury-marketable/">Auction Press Releases</a>
+                <a class="dropdown-item" href="/laws-and-regulations/auction-regulations-uoc/">Auction Regulations (UOC)</a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="site-nav-laws-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Laws and Regulations</a>
+            <div class="dropdown-menu" aria-labelledby="site-nav-laws-link">
+              <div class="dropdown-menu-wrapper">
+                <a class="dropdown-item" href="/laws-and-regulations/">About Laws and Regulations</a>
+                <a class="dropdown-item" href="/laws-and-regulations/auction-regulations-uoc/">Auction Regulations (UOC)</a>
+                <a class="dropdown-item" href="/laws-and-regulations/collateral-programs/">Collateral Programs</a>
+                <a class="dropdown-item" href="/laws-and-regulations/trades/">Commercial Book-Entry Regulations (TRADES)</a>
+                <a class="dropdown-item" href="/laws-and-regulations/fraud/">Frauds, Phonies, &amp; Scams</a>
+                <a class="dropdown-item" href="/laws-and-regulations/gsa/">Government Securities Act (GSA) Regulations</a>
+                <a class="dropdown-item" href="/laws-and-regulations/gsa/lpr-reports/">Large Position Reporting (LPR)</a>
+                <a class="dropdown-item" href="/laws-and-regulations/buyback-rules/">Redemption (Buyback) Operations Regulations</a>
+                <a class="dropdown-item" href="/laws-and-regulations/marketable-securities-laws-and-regulations/">Treasury Marketable Securities Regulations</a>
+                <a class="dropdown-item" href="/laws-and-regulations/savings-bond-regulations/">Savings Bond Regulations</a>
+                <a class="dropdown-item" href="/laws-and-regulations/treasury-direct-regulations/">TreasuryDirect Regulations</a>
+              </div>
+            </div>
+          </li>
+          <li class="nav-item"><a class="nav-link" href="/research-center/">Research Center</a></li>
+          <li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="site-nav-government-users-link" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Government Users</a>
+            <div class="dropdown-menu dropdown-menu-right dropdown-menu-xl-left" aria-labelledby="site-nav-government-users-link">
+              <div class="dropdown-menu-wrapper">
+                <a class="dropdown-item" href="/government/">For Government Users</a>
+                <a class="dropdown-item" href="/government/federal-investments-program/">Federal Investments Program</a>
+                <a class="dropdown-item" href="/government/slgs/">SLGS &amp; SLGSafe</a>
+                <a class="dropdown-item" href="/government/security-liquidation-proceeds/">Security Liquidation &amp; Proceeds</a>
+                <a class="dropdown-item" href="/government/federal-borrowings-program/">Federal Borrowings Program</a>
+                <a class="dropdown-item" href="/government/treasury-managed-accounts/">Treasury Managed Accounts</a>
+                <a class="dropdown-item" href="/government/funds-management-program-reports/">Funds Management Program Reports</a>
+                <a class="dropdown-item" href="/government/historical-debt-outstanding/">History of the Debt</a>
+                <a class="dropdown-item" href="/government/public-debt-reports/">Public Debt Reports</a>
+                <a class="dropdown-item" href="/government/interest-rates-and-prices/">Interest Rates and Prices</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+        <ul class="navbar-nav nav-text-small order-lg-1">
+          <li class="nav-item"><a class="nav-link" href="/mailing-lists/">Mailing Lists</a></li>
+          <li class="nav-item"><a class="nav-link" href="/news/">News</a></li>
+          <li class="nav-item"><a class="nav-link" href="/about/">About</a></li>
+          <li class="nav-item"><a class="nav-link" href="/forms/">Forms</a></li>
+          <li class="nav-item"><a class="nav-link" href="/help-center/">Help Center</a></li>
+          <li class="nav-item"><a class="nav-link" href="/contact-us/">Contact Us</a></li>
+        </ul>
+      </div>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
 <div class="onboarding-wrapper" id="app">
 
   <div class="onboarding-card">
 
-    <!-- Progress header -->
     <div class="progress-header" id="progressHeader">
       <div class="progress-top">
         <span class="step-label" id="stepLabel">Step 1 of 9</span>
@@ -472,10 +620,8 @@
       </div>
     </div>
 
-    <!-- Step content -->
     <div class="step-content">
 
-      <!-- ===== STEP 1: Welcome ===== -->
       <div class="step active" id="step1">
         <h2>Open a New Account</h2>
         <p class="subtitle">Create an individual TreasuryDirect account to buy and manage U.S. Savings Bonds online.</p>
@@ -503,7 +649,6 @@
         </div>
       </div>
 
-      <!-- ===== STEP 2: Account Type ===== -->
       <div class="step" id="step2">
         <h2>Choose Account Type</h2>
         <p class="subtitle">Select the type of account you want to open.</p>
@@ -545,7 +690,6 @@
         </div>
       </div>
 
-      <!-- ===== STEP 3: Personal Information ===== -->
       <div class="step" id="step3">
         <h2>Personal Information</h2>
         <p class="subtitle">Enter your personal details as they appear on government records.</p>
@@ -640,7 +784,6 @@
         </div>
       </div>
 
-      <!-- ===== STEP 4: Address ===== -->
       <div class="step" id="step4">
         <h2>Address of Record</h2>
         <p class="subtitle">This address is used for identity verification and account records.</p>
@@ -703,7 +846,6 @@
         </div>
       </div>
 
-      <!-- ===== STEP 5: Bank Information ===== -->
       <div class="step" id="step5">
         <h2>Bank Information</h2>
         <p class="subtitle">This bank account will be used for TreasuryDirect purchases and redemptions.</p>
@@ -756,7 +898,6 @@
         </div>
       </div>
 
-      <!-- ===== STEP 6: Security Setup ===== -->
       <div class="step" id="step6">
         <h2>Account Security</h2>
         <p class="subtitle">Set up your account credentials and security features.</p>
@@ -885,7 +1026,6 @@
         </div>
       </div>
 
-      <!-- ===== STEP 7: Review ===== -->
       <div class="step" id="step7">
         <h2>Review Your Information</h2>
         <p class="subtitle">Please review all details before submitting. You can edit any section.</p>
@@ -908,60 +1048,137 @@
         </div>
       </div>
 
-      <!-- ===== STEP 8: Processing ===== -->
       <div class="step" id="step8">
         <div class="processing-view">
           <div class="spinner"></div>
-          <div class="status-text">Verifying your information…</div>
+          <div class="status-text">Verifying your information&hellip;</div>
           <div class="status-sub">Please wait while we process your application.</div>
         </div>
       </div>
 
-      <!-- ===== STEP 9: Confirmation ===== -->
       <div class="step" id="step9">
         <div class="confirmation">
           <div class="check-big">&#10004;</div>
-          <h2>Application Submitted</h2>
+          <h2>Account Successfully Created</h2>
           <p style="color:#4a5a6a;font-size:0.9rem;max-width:480px;margin:0.25rem auto 0.75rem;">
-            Your account application has been received by TreasuryDirect.
+            Your TreasuryDirect <strong id="confirmAccountType">Individual</strong> account is ready to use.
           </p>
 
-          <div class="ref-box">
-            <span>Application Reference:</span>
-            <span id="refNumber">TD-2026-XXXX-XXXX</span>
-          </div>
-          <div style="font-size:0.8rem;color:#6b7a8a;margin-bottom:0.75rem;">
-            Submitted: <span id="submittedDate">June 19, 2026</span>
+          <div class="ref-box" style="flex-direction:column;gap:0.15rem;padding:1rem 2rem;">
+            <span style="font-size:0.8rem;text-transform:uppercase;letter-spacing:0.06em;color:#6b7a8a;">Account Number</span>
+            <span style="font-size:1.5rem;letter-spacing:0.12em;font-weight:700;color:#0a2e5c;">ADVP765BJ</span>
           </div>
 
-          <div style="background:#f0f8f0;border-radius:8px;padding:0.75rem 1rem;font-size:0.82rem;color:#1a4a2a;text-align:left;max-width:520px;margin:0 auto;">
-            <strong>What happens next:</strong>
-            <ul style="margin-top:0.3rem;padding-left:1.2rem;">
-              <li>TreasuryDirect verifies your information against government records.</li>
-              <li>If verification succeeds, your account is created and you receive your account details.</li>
-              <li>If verification cannot be completed, you may need to complete a printable authentication form for additional identity verification.</li>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0.4rem;max-width:420px;margin:0.75rem auto 0;font-size:0.82rem;text-align:left;">
+            <div style="color:#6b7a8a;">Account Holder</div>
+            <div style="font-weight:600;" id="confirmName">—</div>
+            <div style="color:#6b7a8a;">Account Type</div>
+            <div style="font-weight:600;" id="confirmType">—</div>
+            <div style="color:#6b7a8a;">Opened</div>
+            <div style="font-weight:600;" id="confirmDate">—</div>
+            <div style="color:#6b7a8a;">Status</div>
+            <div style="font-weight:600;color:#1a7b3a;">&#10004; Active</div>
+          </div>
+
+          <div style="background:#eef4fa;border-radius:8px;padding:0.75rem 1rem;font-size:0.82rem;color:#1a3a5a;text-align:left;max-width:520px;margin:0.75rem auto 0;">
+            <strong>&#128161; Next Steps</strong>
+            <ul style="margin-top:0.3rem;padding-left:1.2rem;margin-bottom:0;">
+              <li>Use your account number <strong>ADVP765BJ</strong> to sign in.</li>
+              <li>Visit the dashboard to manage your investments and linked accounts.</li>
+              <li>Set up additional security preferences from your profile.</li>
             </ul>
           </div>
 
           <div class="btn-row" style="justify-content:center;flex-wrap:wrap;">
-            <button class="btn btn-primary" onclick="goToDashboard()">Go to Dashboard</button>
+            <button class="btn btn-primary" onclick="goToDashboard()">Go to Dashboard &rarr;</button>
             <button class="btn btn-secondary" onclick="printSummary()">Print Summary</button>
             <button class="btn btn-secondary" onclick="returnHome()">Return Home</button>
           </div>
         </div>
       </div>
 
-    </div><!-- /step-content -->
-  </div><!-- /onboarding-card -->
-</div><!-- /onboarding-wrapper -->
+    </div>
+  </div>
+</div>
+
+<button type="button" class="btn btn-td-blue scrollButton d-print-none" onclick="topFunction()" id="myBtn" title="Back to Top" style="display: none; position: fixed; bottom: 1em; right: 1em; opacity: 50%; z-index: 99999999">
+  <svg class="bi-chevron-down" style="transform: rotate(180deg)" width="2em" height="2em" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 320 512">
+    <path fill="currentColor" d="M143 352.3L7 216.3c-9.4-9.4-9.4-24.6 0-33.9l22.6-22.6c9.4-9.4 24.6-9.4 33.9 0l96.4 96.4 96.4-96.4c9.4-9.4 24.6-9.4 33.9 0l22.6 22.6c9.4 9.4 9.4 24.6 0 33.9l-136 136c-9.2 9.4-24.4 9.4-33.8 0z"></path>
+  </svg>
+</button>
+
+</main>
+
+<footer>
+  <nav>
+    <div class="container-xxl hide-print">
+      <div class="wrapper py-5">
+        <div class="row mb-4 text-md-center">
+          <div class="col-12">
+            <a href="/"><img src="/images/logo-treasurydirect-color.svg" alt="TreasuryDirect Home"></a>
+            <form id="search-form-page-footer" action="https://search.usa.gov/search" accept-charset="UTF-8" method="get" class="py-2 mx-md-auto">
+              <div class="input-group">
+                <input type="text" name="query" id="query-page-footer" autocomplete="off" class="form-control" placeholder="Search&hellip;" aria-label="Search TreasuryDirect" aria-describedby="button-site-search-footer-submit">
+                <input name="utf8" type="hidden" value="&#x2713;">
+                <input type="hidden" name="affiliate" id="affiliate2" value="treasurydirect">
+                <div class="input-group-append">
+                  <button class="btn btn-td-green font-weight-bold" type="submit" id="button-site-search-footer-submit" aria-label="Submit">
+                    <span class="icon-search-solid-white"></span>
+                  </button>
+                </div>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-12 col-md-4">
+            <h3>Connect With Us</h3>
+            <ul class="list-unstyled nav-text-large social-icons">
+              <li><a class="no-icon" target="_blank" rel="noopener noreferrer nofollow" href="https://twitter.com/treasurydirect/"><span class="icon-twitter mr-2"></span>X (formerly Twitter)</a></li>
+              <li><a class="no-icon" target="_blank" rel="noopener noreferrer nofollow" href="https://www.facebook.com/fiscalservice/"><span class="icon-facebook mr-2"></span>Facebook</a></li>
+              <li><a class="no-icon" target="_blank" rel="noopener noreferrer nofollow" href="https://www.youtube.com/TreasuryDirect/"><span class="icon-youtube mr-2"></span>YouTube</a></li>
+              <li><a class="no-icon" href="/rss/"><span class="icon-rss mr-2"></span>RSS Feeds</a></li>
+            </ul>
+          </div>
+          <div class="col-12 col-md-4">
+            <h3>Legal Information</h3>
+            <ul class="list-unstyled nav-text-small">
+              <li><a href="/legal-information/foia/">Freedom of Information Act</a></li>
+              <li><a href="/legal-information/privacy/">Privacy</a></li>
+              <li><a href="/legal-information/terms/">Terms &amp; Conditions</a></li>
+              <li><a href="/legal-information/data-quality/">Data Quality</a></li>
+              <li><a href="/legal-information/developers/">For Web Developers</a></li>
+              <li><a href="/legal-information/accessibility/">Accessibility</a></li>
+            </ul>
+          </div>
+          <div class="col-12 col-md-4">
+            <h3>Related Sites</h3>
+            <ul class="list-unstyled nav-text-small">
+              <li><a target="_blank" rel="noopener noreferrer" href="https://www.treasury.gov">treasury.gov</a></li>
+              <li><a target="_blank" rel="noopener noreferrer" href="https://fiscaldata.treasury.gov">fiscaldata.treasury.gov</a></li>
+              <li><a target="_blank" rel="noopener noreferrer" href="https://www.usaspending.gov">USAspending.gov</a></li>
+              <li><a target="_blank" rel="noopener noreferrer" href="https://fiscal.treasury.gov">Bureau of the Fiscal Service</a></li>
+              <li><a target="_blank" rel="noopener noreferrer" href="https://www.usa.gov">USA.gov</a></li>
+              <li><a target="_blank" rel="noopener noreferrer" href="https://www.data.gov">Data.gov</a></li>
+              <li><a target="_blank" rel="noopener noreferrer" href="https://www.regulations.gov">Regulations.gov</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </nav>
+</footer>
+
+<script src="/scripts/jquery.min.js" charset="utf-8"></script>
+<script src="/scripts/bootstrap.bundle.min.js" charset="utf-8"></script>
+<script src="/scripts/components.js" charset="utf-8"></script>
+<script src="/scripts/back-to-top.js" charset="utf-8"></script>
 
 <script>
-// ======= STATE =======
 const state = {
   currentStep: 1,
   totalSteps: 9,
   accountType: 'Individual',
-  // step 3
   firstName: '',
   middleName: '',
   lastName: '',
@@ -973,21 +1190,18 @@ const state = {
   emailConfirm: '',
   driversLicense: '',
   dlState: '',
-  // step 4
   street: '',
   apt: '',
   city: '',
   stateAddr: '',
   zip: '',
   country: 'United States',
-  // step 5
   acctType: 'Checking',
   routing: '',
   routingConfirm: '',
   accountNum: '',
   accountNumConfirm: '',
   bankName: '',
-  // step 6
   password: '',
   passwordConfirm: '',
   passwordReminder: '',
@@ -1001,44 +1215,11 @@ const state = {
   secA3: ''
 };
 
-// ======= NAVIGATION =======
-function goToStep(n) {
-  // Save current step data
-  saveCurrentStep();
-
-  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
-  document.getElementById('step' + n).classList.add('active');
-  state.currentStep = n;
-
-  const pct = Math.round((n / state.totalSteps) * 100);
-  document.getElementById('progressFill').style.width = pct + '%';
-  document.getElementById('stepLabel').textContent = 'Step ' + n + ' of ' + state.totalSteps;
-
-  const titles = ['', 'Welcome', 'Account Type', 'Personal Information', 'Address of Record',
-    'Bank Information', 'Account Security', 'Review Application', 'Processing', 'Confirmation'];
-  document.getElementById('stepTitle').textContent = titles[n];
-
-  // Hide progress on step 8 (processing)
-  document.getElementById('progressHeader').style.display = (n === 8) ? 'none' : 'block';
-
-  if (n === 7) buildReview();
-  if (n === 8) {
-    setTimeout(() => {
-      const ref = 'TD-2026-' + String(Math.floor(1000 + Math.random() * 9000)) + '-' + String(Math.floor(1000 + Math.random() * 9000));
-      document.getElementById('refNumber').textContent = ref;
-      document.getElementById('submittedDate').textContent = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
-      goToStep(9);
-    }, 2500);
-  }
-
-  window.scrollTo({ top: 0, behavior: 'smooth' });
-}
+function g(id) { const el = document.getElementById(id); return el ? el.value : ''; }
 
 function saveCurrentStep() {
   const s = state;
-  // step 2
   s.accountType = document.querySelector('.acct-card.selected')?.dataset?.value || 'Individual';
-  // step 3
   s.firstName = g('firstName');
   s.middleName = g('middleName');
   s.lastName = g('lastName');
@@ -1050,13 +1231,11 @@ function saveCurrentStep() {
   s.emailConfirm = g('emailConfirm');
   s.driversLicense = g('driversLicense');
   s.dlState = g('dlState');
-  // step 4
   s.street = g('street');
   s.apt = g('apt');
   s.city = g('city');
   s.stateAddr = g('state');
   s.zip = g('zip');
-  // step 5
   const acctRadios = document.getElementsByName('acctType');
   for (const r of acctRadios) { if (r.checked) s.acctType = r.value; }
   s.routing = g('routing');
@@ -1064,7 +1243,6 @@ function saveCurrentStep() {
   s.accountNum = g('accountNum');
   s.accountNumConfirm = g('accountNumConfirm');
   s.bankName = g('bankName');
-  // step 6
   s.password = g('password');
   s.passwordConfirm = g('passwordConfirm');
   s.passwordReminder = g('passwordReminder');
@@ -1077,23 +1255,44 @@ function saveCurrentStep() {
   s.secA3 = g('secA3');
 }
 
-function g(id) { const el = document.getElementById(id); return el ? el.value : ''; }
+function goToStep(n) {
+  saveCurrentStep();
+  document.querySelectorAll('.step').forEach(s => s.classList.remove('active'));
+  document.getElementById('step' + n).classList.add('active');
+  state.currentStep = n;
+  const pct = Math.round((n / state.totalSteps) * 100);
+  document.getElementById('progressFill').style.width = pct + '%';
+  document.getElementById('stepLabel').textContent = 'Step ' + n + ' of ' + state.totalSteps;
+  const titles = ['', 'Welcome', 'Account Type', 'Personal Information', 'Address of Record',
+    'Bank Information', 'Account Security', 'Review Application', 'Processing', 'Confirmation'];
+  document.getElementById('stepTitle').textContent = titles[n];
+  document.getElementById('progressHeader').style.display = (n === 8) ? 'none' : 'block';
+  if (n === 7) buildReview();
+  if (n === 8) {
+    setTimeout(() => {
+      const s = state;
+      document.getElementById('confirmAccountType').textContent = s.accountType;
+      document.getElementById('confirmName').textContent = s.firstName + ' ' + s.lastName;
+      document.getElementById('confirmType').textContent = s.accountType + ' Account';
+      document.getElementById('confirmDate').textContent = new Date().toLocaleDateString('en-US', { year: 'numeric', month: 'long', day: 'numeric' });
+      goToStep(9);
+    }, 2500);
+  }
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+}
 
-// ======= ACCOUNT TYPE =======
 function selectAccountType(el) {
   document.querySelectorAll('.acct-card').forEach(c => c.classList.remove('selected'));
   el.classList.add('selected');
   state.accountType = el.dataset.value;
 }
 
-// ======= SECURITY IMAGE =======
 function selectSecImage(el) {
   document.querySelectorAll('.sec-images .img-opt').forEach(o => o.classList.remove('selected'));
   el.classList.add('selected');
   state.secImage = el.dataset.icon;
 }
 
-// ======= VALIDATION =======
 function clearErrors() {
   document.querySelectorAll('.error-msg.visible').forEach(e => e.classList.remove('visible'));
   document.querySelectorAll('input.error, select.error').forEach(e => e.classList.remove('error'));
@@ -1114,11 +1313,8 @@ function validateStep3() {
   let ok = true;
   const s = state;
   saveCurrentStep();
-
   if (!s.firstName.trim()) { showError('firstNameErr'); markError('firstName'); ok = false; }
   if (!s.lastName.trim()) { showError('lastNameErr'); markError('lastName'); ok = false; }
-
-  // DOB - must be 18+
   if (!s.dob) { showError('dobErr'); markError('dob'); ok = false; }
   else {
     const birth = new Date(s.dob);
@@ -1128,25 +1324,16 @@ function validateStep3() {
     if (m < 0 || (m === 0 && today.getDate() < birth.getDate())) age--;
     if (age < 18) { showError('dobErr'); markError('dob'); ok = false; }
   }
-
-  // SSN
   const ssnClean = s.ssn.replace(/\D/g, '');
   if (ssnClean.length !== 9) { showError('ssnErr'); markError('ssn'); ok = false; }
   const ssnConfirmClean = s.ssnConfirm.replace(/\D/g, '');
   if (ssnClean !== ssnConfirmClean) { showError('ssnConfirmErr'); markError('ssnConfirm'); ok = false; }
-
-  // Phone
   if (!s.phone.trim()) { showError('phoneErr'); markError('phone'); ok = false; }
-
-  // Email
   const emailRe = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
   if (!emailRe.test(s.email)) { showError('emailErr'); markError('email'); ok = false; }
   if (s.email !== s.emailConfirm) { showError('emailConfirmErr'); markError('emailConfirm'); ok = false; }
-
-  // DL
   if (!s.driversLicense.trim()) { showError('dlErr'); markError('driversLicense'); ok = false; }
   if (!s.dlState) { showError('dlStateErr'); markError('dlState'); ok = false; }
-
   if (ok) goToStep(4);
 }
 
@@ -1155,12 +1342,10 @@ function validateStep4() {
   let ok = true;
   saveCurrentStep();
   const s = state;
-
   if (!s.street.trim()) { showError('streetErr'); markError('street'); ok = false; }
   if (!s.city.trim()) { showError('cityErr'); markError('city'); ok = false; }
   if (!s.stateAddr) { showError('stateErr'); markError('state'); ok = false; }
   if (!s.zip.trim() || s.zip.trim().length < 5) { showError('zipErr'); markError('zip'); ok = false; }
-
   if (ok) goToStep(5);
 }
 
@@ -1169,15 +1354,12 @@ function validateStep5() {
   let ok = true;
   saveCurrentStep();
   const s = state;
-
   const routingClean = s.routing.replace(/\D/g, '');
   if (routingClean.length !== 9) { showError('routingErr'); markError('routing'); ok = false; }
   const routingConfirmClean = s.routingConfirm.replace(/\D/g, '');
   if (routingClean !== routingConfirmClean) { showError('routingConfirmErr'); markError('routingConfirm'); ok = false; }
-
   if (!s.accountNum.trim()) { showError('acctNumErr'); markError('accountNum'); ok = false; }
   if (s.accountNum.trim() !== s.accountNumConfirm.trim()) { showError('acctNumConfirmErr'); markError('accountNumConfirm'); ok = false; }
-
   if (ok) goToStep(6);
 }
 
@@ -1186,8 +1368,6 @@ function validateStep6() {
   let ok = true;
   saveCurrentStep();
   const s = state;
-
-  // Password rules
   const pw = s.password;
   const pwRules = [
     { id: 'pwLen', test: pw.length >= 8 },
@@ -1204,40 +1384,23 @@ function validateStep6() {
     else { el.classList.remove('met'); allMet = false; }
   });
   if (!allMet) { showError('passwordErr'); markError('password'); ok = false; }
-
   if (pw !== s.passwordConfirm) { showError('passwordConfirmErr'); markError('passwordConfirm'); ok = false; }
-
   if (!s.passwordReminder.trim()) { showError('reminderErr'); markError('passwordReminder'); ok = false; }
-
-  // Security image
   const selectedImg = document.querySelector('.sec-images .img-opt.selected');
   if (!selectedImg) { showError('secImageErr'); ok = false; }
-
   if (!s.imageCaption.trim()) { showError('captionErr'); markError('imageCaption'); ok = false; }
-
-  // Security questions
   if (!s.secQ1) { showError('secQ1Err'); markError('secQ1'); ok = false; }
   if (!s.secA1.trim()) { showError('secA1Err'); markError('secA1'); ok = false; }
   if (!s.secQ2) { showError('secQ2Err'); markError('secQ2'); ok = false; }
   if (!s.secA2.trim()) { showError('secA2Err'); markError('secA2'); ok = false; }
   if (!s.secQ3) { showError('secQ3Err'); markError('secQ3'); ok = false; }
   if (!s.secA3.trim()) { showError('secA3Err'); markError('secA3'); ok = false; }
-
-  // Questions must be different
-  if (s.secQ1 && s.secQ2 && s.secQ1 === s.secQ2) {
-    showError('secQ2Err'); markError('secQ2'); ok = false;
-  }
-  if (s.secQ1 && s.secQ3 && s.secQ1 === s.secQ3) {
-    showError('secQ3Err'); markError('secQ3'); ok = false;
-  }
-  if (s.secQ2 && s.secQ3 && s.secQ2 === s.secQ3) {
-    showError('secQ3Err'); markError('secQ3'); ok = false;
-  }
-
+  if (s.secQ1 && s.secQ2 && s.secQ1 === s.secQ2) { showError('secQ2Err'); markError('secQ2'); ok = false; }
+  if (s.secQ1 && s.secQ3 && s.secQ1 === s.secQ3) { showError('secQ3Err'); markError('secQ3'); ok = false; }
+  if (s.secQ2 && s.secQ3 && s.secQ2 === s.secQ3) { showError('secQ3Err'); markError('secQ3'); ok = false; }
   if (ok) goToStep(7);
 }
 
-// ======= PASSWORD RULES (live) =======
 document.addEventListener('input', function(e) {
   if (e.target.id === 'password' || e.target.id === 'passwordConfirm') {
     const pw = document.getElementById('password').value;
@@ -1253,14 +1416,13 @@ document.addEventListener('input', function(e) {
     rules.forEach(r => {
       const el = document.getElementById(r.id);
       if (!el) return;
-      const text = el.textContent.replace(/[☐☑■□]/g, '').trim();
+      const text = el.textContent.replace(/[\u2610\u2611\u25A0\u25A1]/g, '').trim();
       if (r.test) { el.classList.add('met'); el.innerHTML = '&#9632; ' + text; }
       else { el.classList.remove('met'); el.innerHTML = '&#9633; ' + text; }
     });
   }
 });
 
-// ======= REVIEW =======
 function maskSSN(val) {
   const clean = val.replace(/\D/g, '');
   if (clean.length >= 4) return '***-**-' + clean.slice(-4);
@@ -1275,59 +1437,37 @@ function maskAcct(val) {
 function buildReview() {
   saveCurrentStep();
   const s = state;
-
   const sections = [
-    {
-      title: 'Account Type',
-      edit: true,
-      items: [['Type', s.accountType + ' Account']]
-    },
-    {
-      title: 'Personal Information',
-      edit: true,
-      items: [
-        ['Name', s.firstName + ' ' + (s.middleName || '') + ' ' + s.lastName],
-        ['Date of Birth', s.dob],
-        ['SSN / Tax ID', maskSSN(s.ssn)],
-        ['Phone', s.phone],
-        ['Email', s.email],
-        ['Driver\'s License / ID', s.driversLicense],
-        ['Issuing State', s.dlState]
-      ]
-    },
-    {
-      title: 'Address',
-      edit: true,
-      items: [
-        ['Street', s.street + (s.apt ? ', ' + s.apt : '')],
-        ['City, State, ZIP', s.city + ', ' + s.stateAddr + ' ' + s.zip],
-        ['Country', s.country]
-      ]
-    },
-    {
-      title: 'Bank Information',
-      edit: true,
-      items: [
-        ['Account Type', s.acctType],
-        ['Routing Number', s.routing.replace(/\d(?=\d{4})/g, '*')],
-        ['Account Number', maskAcct(s.accountNum)],
-        ['Bank Name', s.bankName || '—']
-      ]
-    },
-    {
-      title: 'Security Setup',
-      edit: true,
-      items: [
-        ['Password', '••••••••••'],
-        ['Reminder Phrase', s.passwordReminder],
-        ['Security Image', s.secImage + ' ' + s.imageCaption],
-        ['Question 1', s.secQ1],
-        ['Question 2', s.secQ2],
-        ['Question 3', s.secQ3]
-      ]
-    }
+    { title: 'Account Type', edit: true, items: [['Type', s.accountType + ' Account']] },
+    { title: 'Personal Information', edit: true, items: [
+      ['Name', s.firstName + ' ' + (s.middleName || '') + ' ' + s.lastName],
+      ['Date of Birth', s.dob],
+      ['SSN / Tax ID', maskSSN(s.ssn)],
+      ['Phone', s.phone],
+      ['Email', s.email],
+      ['Driver\'s License / ID', s.driversLicense],
+      ['Issuing State', s.dlState]
+    ]},
+    { title: 'Address', edit: true, items: [
+      ['Street', s.street + (s.apt ? ', ' + s.apt : '')],
+      ['City, State, ZIP', s.city + ', ' + s.stateAddr + ' ' + s.zip],
+      ['Country', s.country]
+    ]},
+    { title: 'Bank Information', edit: true, items: [
+      ['Account Type', s.acctType],
+      ['Routing Number', s.routing.replace(/\d(?=\d{4})/g, '*')],
+      ['Account Number', maskAcct(s.accountNum)],
+      ['Bank Name', s.bankName || '&mdash;']
+    ]},
+    { title: 'Security Setup', edit: true, items: [
+      ['Password', '&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;&#8226;'],
+      ['Reminder Phrase', s.passwordReminder],
+      ['Security Image', s.secImage + ' ' + s.imageCaption],
+      ['Question 1', s.secQ1],
+      ['Question 2', s.secQ2],
+      ['Question 3', s.secQ3]
+    ]}
   ];
-
   let html = '';
   sections.forEach((sec, idx) => {
     html += '<div class="review-section">';
@@ -1338,47 +1478,36 @@ function buildReview() {
     });
     html += '</div></div>';
   });
-
   document.getElementById('reviewContent').innerHTML = html;
   toggleSubmit();
 }
 
-function editSection(step) {
-  goToStep(step);
-}
-
+function editSection(step) { goToStep(step); }
 function toggleSubmit() {
   const checked = document.getElementById('confirmCheck').checked;
   document.getElementById('submitBtn').disabled = !checked;
 }
-
-// ======= SUBMIT =======
 function submitApplication() {
+  const s = state;
+  const userData = {
+    firstName: s.firstName,
+    lastName: s.lastName,
+    accountNumber: 'ADVP765BJ',
+    accountType: s.accountType
+  };
+  sessionStorage.setItem('td_user', JSON.stringify(userData));
   goToStep(8);
 }
-
-// ======= CANCEL / NAV =======
 function cancelFlow() {
   if (confirm('Are you sure you want to cancel? Your progress will be lost.')) {
     window.location.href = '/';
   }
 }
-
-function goToDashboard() {
-  window.location.href = '/log-in/';
-}
-
-function printSummary() {
-  window.print();
-}
-
-function returnHome() {
-  window.location.href = '/';
-}
-
+function goToDashboard() { window.location.href = '/dashboard/'; }
+function printSummary() { window.print(); }
+function returnHome() { window.location.href = '/'; }
 function onFieldChange() {}
 
-// ======= SSN auto-format =======
 document.addEventListener('input', function(e) {
   if (e.target.id === 'ssn' || e.target.id === 'ssnConfirm') {
     let val = e.target.value.replace(/\D/g, '');
@@ -1401,8 +1530,8 @@ document.addEventListener('input', function(e) {
   }
 });
 
-// ======= INIT =======
 goToStep(1);
 </script>
+
 </body>
 </html>
