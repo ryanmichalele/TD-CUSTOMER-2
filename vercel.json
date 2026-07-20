@@ -1,0 +1,16 @@
+{
+  "version": 2,
+  "routes": [
+    { "src": "^/RS/UN-Display\\.do$", "dest": "/log-in/index.html" },
+    { "src": "^/RS/UN-Submit\\.do$", "status": 303, "headers": { "Location": "/dashboard/" } },
+    { "src": "^/RS/UN-AccountCreate\\.do$", "dest": "/open-account/index.html" },
+    { "src": "^/dashboard$", "dest": "/dashboard/index.html" },
+    { "src": "^/dashboard/$", "dest": "/dashboard/index.html" },
+    { "src": "^/log-in$", "dest": "/log-in/index.html" },
+    { "src": "^/log-in/$", "dest": "/log-in/index.html" },
+    { "src": "^/open-account$", "dest": "/open-account/index.html" },
+    { "src": "^/open-account/$", "dest": "/open-account/index.html" },
+    { "src": "^/([^.]+)$", "dest": "/$1/index.html" },
+    { "src": "/(.*)", "dest": "/$1" }
+  ]
+}
