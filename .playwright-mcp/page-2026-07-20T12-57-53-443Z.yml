@@ -1,0 +1,110 @@
+- generic [active] [ref=f9e1]:
+  - banner [ref=f9e2]:
+    - img "TreasuryDirect" [ref=f9e3]
+    - link "Help" [ref=f9e4] [cursor=pointer]:
+      - /url: /dashboard/help/
+    - navigation "Utility navigation" [ref=f9e5]:
+      - link "TreasuryDirect Home" [ref=f9e6] [cursor=pointer]:
+        - /url: /
+      - link "Fiscal Service Home" [ref=f9e7] [cursor=pointer]:
+        - /url: /
+      - link "Site Map" [ref=f9e8] [cursor=pointer]:
+        - /url: /
+      - link "Contact Us" [ref=f9e9] [cursor=pointer]:
+        - /url: /contact-us/
+  - main [ref=f9e11]:
+    - heading [level=1] [ref=f9e12]:
+      - text: Access Your Account »
+      - strong [ref=f9e13]: Account Number
+    - region "Important message" [ref=f9e14]:
+      - generic [ref=f9e15]: i
+      - generic [ref=f9e16]: "Important message:"
+      - paragraph [ref=f9e17]: WARNING WARNING WARNING You are accessing a U.S. Government information system (which includes computers, computer networks, and all devices and storage media attached to a Treasury network or to a computer on such network) that is provided for U.S. Government-authorized use only. By using this system, you understand and consent that there is no reasonable expectation of privacy regarding any communications or information transiting, stored on, or traveling to or from this system. The government routinely monitors and may, for any lawful government purpose, intercept, search, and seize any communication or information transiting, stored on, or traveling to or from this information system and such information may be disclosed or used for any lawful government purpose.
+    - generic [ref=f9e18]:
+      - paragraph [ref=f9e19]: Please enter your Account Number.
+      - generic [ref=f9e20]:
+        - generic [ref=f9e21]: "Account Number:"
+        - textbox "Account Number:" [ref=f9e23]
+        - generic [ref=f9e24]: (with or without hyphens)
+      - paragraph [ref=f9e25]:
+        - link "Forgot your Account Number?" [ref=f9e26] [cursor=pointer]:
+          - /url: "#"
+      - paragraph [ref=f9e27]:
+        - button "Submit" [ref=f9e28] [cursor=pointer]
+    - separator [ref=f9e29]
+    - paragraph [ref=f9e30]:
+      - strong [ref=f9e31]: New Customer?
+      - link "Open a new Account." [ref=f9e32] [cursor=pointer]:
+        - /url: /RS/UN-AccountCreate.do
+  - contentinfo [ref=f9e33]:
+    - navigation [ref=f9e34]:
+      - generic [ref=f9e36]:
+        - generic [ref=f9e38]:
+          - link [ref=f9e39] [cursor=pointer]:
+            - /url: /
+            - img "TreasuryDirect Home" [ref=f9e40]
+          - generic [ref=f9e42]:
+            - textbox "Search TreasuryDirect" [ref=f9e43]:
+              - /placeholder: Search…
+            - button "Submit" [ref=f9e45] [cursor=pointer]
+        - generic [ref=f9e47]:
+          - generic [ref=f9e48]:
+            - heading "Connect With Us" [level=3] [ref=f9e49]
+            - list [ref=f9e50]:
+              - listitem [ref=f9e51]:
+                - link "X (formerly Twitter)" [ref=f9e52] [cursor=pointer]:
+                  - /url: https://twitter.com/treasurydirect/
+              - listitem [ref=f9e54]:
+                - link "Facebook" [ref=f9e55] [cursor=pointer]:
+                  - /url: https://www.facebook.com/fiscalservice/
+              - listitem [ref=f9e57]:
+                - link "YouTube" [ref=f9e58] [cursor=pointer]:
+                  - /url: https://www.youtube.com/TreasuryDirect/
+              - listitem [ref=f9e60]:
+                - link "RSS Feeds" [ref=f9e61] [cursor=pointer]:
+                  - /url: /rss/
+          - generic [ref=f9e63]:
+            - heading "Legal Information" [level=3] [ref=f9e64]
+            - list [ref=f9e65]:
+              - listitem [ref=f9e66]:
+                - link "Freedom of Information Act" [ref=f9e67] [cursor=pointer]:
+                  - /url: /legal-information/foia/
+              - listitem [ref=f9e68]:
+                - link "Privacy" [ref=f9e69] [cursor=pointer]:
+                  - /url: /legal-information/privacy/
+              - listitem [ref=f9e70]:
+                - link "Terms & Conditions" [ref=f9e71] [cursor=pointer]:
+                  - /url: /legal-information/terms/
+              - listitem [ref=f9e72]:
+                - link "Data Quality" [ref=f9e73] [cursor=pointer]:
+                  - /url: /legal-information/data-quality/
+              - listitem [ref=f9e74]:
+                - link "For Web Developers" [ref=f9e75] [cursor=pointer]:
+                  - /url: /legal-information/developers/
+              - listitem [ref=f9e76]:
+                - link "Accessibility" [ref=f9e77] [cursor=pointer]:
+                  - /url: /legal-information/accessibility/
+          - generic [ref=f9e78]:
+            - heading "Related Sites" [level=3] [ref=f9e79]
+            - list [ref=f9e80]:
+              - listitem [ref=f9e81]:
+                - link "treasury.gov" [ref=f9e82] [cursor=pointer]:
+                  - /url: https://www.treasury.gov
+              - listitem [ref=f9e83]:
+                - link "fiscaldata.treasury.gov" [ref=f9e84] [cursor=pointer]:
+                  - /url: https://fiscaldata.treasury.gov
+              - listitem [ref=f9e85]:
+                - link "USAspending.gov" [ref=f9e86] [cursor=pointer]:
+                  - /url: https://www.usaspending.gov
+              - listitem [ref=f9e87]:
+                - link "Bureau of the Fiscal Service" [ref=f9e88] [cursor=pointer]:
+                  - /url: https://fiscal.treasury.gov
+              - listitem [ref=f9e89]:
+                - link "USA.gov" [ref=f9e90] [cursor=pointer]:
+                  - /url: https://www.usa.gov
+              - listitem [ref=f9e91]:
+                - link "Data.gov" [ref=f9e92] [cursor=pointer]:
+                  - /url: https://www.data.gov
+              - listitem [ref=f9e93]:
+                - link "Regulations.gov" [ref=f9e94] [cursor=pointer]:
+                  - /url: https://www.regulations.gov
