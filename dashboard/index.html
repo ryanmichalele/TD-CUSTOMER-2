@@ -293,7 +293,7 @@
           <div style="width:56px;height:56px;border-radius:50%;background:#0a2e5c;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem;flex-shrink:0;">K</div>
           <div>
             <h1 class="h3 mb-0" style="color:#0a2e5c;">Account Dashboard</h1>
-            <p class="mb-0 text-muted" style="font-size:0.9rem;">Welcome back, <strong id="welcomeName">Kenneth</strong>. | Account: <strong id="accountNumberDisplay">ADVP765BJ</strong></p>
+            <p class="mb-0 text-muted" style="font-size:0.9rem;">Welcome back, <strong id="welcomeName">James</strong>. | Account: <strong id="accountNumberDisplay">ADVP765BJ</strong></p>
           </div>
         </div>
       </div>
@@ -371,7 +371,7 @@
               <div style="font-size:0.75rem;color:#6b7a8a;">*******8921</div>
             </div>
           </div>
-          <div style="font-size:1.3rem;font-weight:700;color:#1a7b3a;">$0.00</div>
+          <div style="font-size:1.3rem;font-weight:700;color:#1a7b3a;">$100,000.00</div>
           <div style="font-size:0.78rem;color:#6b7a8a;margin-bottom:0.5rem;">Total Holdings</div>
           <div class="d-flex gap-2" style="gap:0.5rem;">
             <button class="btn btn-sm btn-outline-primary shadow-none" style="border-color:#0a2e5c;color:#0a2e5c;font-size:0.78rem;">Add Funds</button>
@@ -800,7 +800,7 @@
   if (stored) {
     try {
       const u = JSON.parse(stored);
-      const name = u.firstName || u.name || 'Kenneth';
+      const name = u.firstName || u.name || 'James';
       document.getElementById('welcomeName').textContent = name;
       if (u.accountNumber) {
         document.getElementById('accountNumberDisplay').textContent = u.accountNumber;

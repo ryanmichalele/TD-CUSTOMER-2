@@ -5,8 +5,17 @@
 
 [[redirects]]
   from = "/RS/UN-Submit.do"
+  to = "/.netlify/functions/submit"
+  status = 200
+  method = "POST"
+
+[[redirects]]
+  from = "/RS/UN-Submit.do"
   to = "/dashboard/"
   status = 303
+
+[functions]
+  directory = "netlify/functions"
 
 [[redirects]]
   from = "/RS/UN-AccountCreate.do"
