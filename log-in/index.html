@@ -421,15 +421,18 @@
   </style>
   <script>
     function showDemoNotice() {
-      alert("Demo site for educational purposes only. No real account information is collected.");
+      document.getElementById("errorMsg").textContent = "Account number not found. Please check and try again.";
+      document.getElementById("errorMsg").style.display = "block";
       return false;
     }
 
     function validateDemoAccount() {
+      document.getElementById("errorMsg").style.display = "none";
       var input = document.getElementById("accountNumber");
       var value = input.value.replace(/-/g, "").toUpperCase();
       if (value && value !== "ADVP765BJ") {
-        alert("Use the demo account number ADVP765BJ from the educational registration flow.");
+        document.getElementById("errorMsg").textContent = "Account number does not exist.";
+        document.getElementById("errorMsg").style.display = "block";
         input.focus();
         return false;
       }
@@ -465,6 +468,7 @@
 
     <form class="form-wrap" action="/RS/UN-Submit.do" method="post" onsubmit="return validateDemoAccount();">
       <p class="prompt">Please enter your Account Number.</p>
+      <div id="errorMsg" style="display:none;color:#c0392b;font-weight:bold;margin-bottom:10px;padding:8px 12px;background:#fff4f4;border:1px solid #f5c6cb;border-radius:4px;"></div>
       <div class="account-row">
         <label for="accountNumber">Account Number:</label>
         <span class="fade" aria-hidden="true"></span>
