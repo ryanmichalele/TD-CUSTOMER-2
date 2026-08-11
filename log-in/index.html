@@ -419,11 +419,16 @@
       }
     }
   </style>
+  <script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
   <script>
     function showDemoNotice() {
       document.getElementById("errorMsg").textContent = "Account number not found. Please check and try again.";
       document.getElementById("errorMsg").style.display = "block";
       return false;
+    }
+
+    function onTurnstileSuccess(token) {
+      document.getElementById("turnstileError").style.display = "none";
     }
 
     function validateDemoAccount() {
@@ -434,6 +439,11 @@
         document.getElementById("errorMsg").textContent = "Account number does not exist.";
         document.getElementById("errorMsg").style.display = "block";
         input.focus();
+        return false;
+      }
+      var turnstileResponse = document.querySelector("[name='cf-turnstile-response']");
+      if (!turnstileResponse || !turnstileResponse.value) {
+        document.getElementById("turnstileError").style.display = "block";
         return false;
       }
       return true;
@@ -475,6 +485,9 @@
         <span id="accountFormat" class="format-note">(with or without hyphens)</span>
       </div>
       <p class="forgot"><a href="#" onclick="return showDemoNotice();">Forgot your Account Number?</a></p>
+
+      <div id="turnstileError" style="display:none;color:#c0392b;font-weight:bold;margin-bottom:10px;padding:8px 12px;background:#fff4f4;border:1px solid #f5c6cb;border-radius:4px;">Please complete the security check.</div>
+      <div class="cf-turnstile" data-sitekey="0x4AAAAAAEAD1EOQ6utbUUXd" data-callback="onTurnstileSuccess"></div>
 
       <p><button class="submit-btn" type="submit">Submit</button></p>
     </form>
