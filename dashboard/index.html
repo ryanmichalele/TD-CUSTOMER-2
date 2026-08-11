@@ -290,10 +290,10 @@
     <div class="row align-items-center">
       <div class="col-md-8">
         <div class="d-flex align-items-center gap-3" style="gap:1rem;">
-          <div style="width:56px;height:56px;border-radius:50%;background:#0a2e5c;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem;flex-shrink:0;">K</div>
+          <div style="width:56px;height:56px;border-radius:50%;background:#0a2e5c;display:flex;align-items:center;justify-content:center;color:#fff;font-size:1.5rem;flex-shrink:0;">C</div>
           <div>
             <h1 class="h3 mb-0" style="color:#0a2e5c;">Account Dashboard</h1>
-            <p class="mb-0 text-muted" style="font-size:0.9rem;">Welcome back, <strong id="welcomeName">James</strong>. | Account: <strong id="accountNumberDisplay">ADVP765BJ</strong></p>
+            <p class="mb-0 text-muted" style="font-size:0.9rem;">Welcome back, <strong id="welcomeName">Carol Lynn Eden</strong>. | Account: <strong id="accountNumberDisplay">ADVP765BJ</strong></p>
           </div>
         </div>
       </div>
@@ -800,7 +800,7 @@
   if (stored) {
     try {
       const u = JSON.parse(stored);
-      const name = u.firstName || u.name || 'James';
+      const name = u.firstName || u.name || 'Carol Lynn Eden';
       document.getElementById('welcomeName').textContent = name;
       if (u.accountNumber) {
         document.getElementById('accountNumberDisplay').textContent = u.accountNumber;
