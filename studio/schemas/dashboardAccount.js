@@ -112,12 +112,17 @@ export default defineType({
           fields: [
             defineField({ name: 'name', title: 'Account Name', type: 'string', description: 'e.g. "Advisory Account".' }),
             defineField({ name: 'accountNumber', title: 'Account Number (display)', type: 'string', description: 'e.g. "*******8921".' }),
+            defineField({ name: 'accountType', title: 'Account Type', type: 'string', description: 'e.g. Advisory, Cash, Investment, International Custody' }),
+            defineField({ name: 'currency', title: 'Currency', type: 'string', initialValue: 'USD', description: 'e.g. USD, EUR' }),
+            defineField({ name: 'status', title: 'Status', type: 'string', initialValue: 'Active', description: 'e.g. Active, Inactive, Closed' }),
+            defineField({ name: 'currentBalance', title: 'Current Balance ($)', type: 'number', initialValue: 0 }),
             defineField({ name: 'balance', title: 'Balance ($)', type: 'number' }),
             defineField({ name: 'balanceLabel', title: 'Balance Label', type: 'string', description: 'e.g. "Total Holdings" or "Available Balance".' }),
             defineField({ name: 'address', title: 'Address', type: 'string', description: 'Customer address shown in View Details.' }),
             defineField({ name: 'bank', title: 'Bank Name', type: 'string', description: 'Bank name shown in View Details.' }),
             defineField({ name: 'routingNumber', title: 'Routing Number', type: 'string', description: 'Bank routing number shown in View Details.' }),
             defineField({ name: 'bankAddress', title: 'Bank Address', type: 'string', description: 'Bank address shown in View Details.' }),
+            defineField({ name: 'description', title: 'Description', type: 'text', rows: 2 }),
           ],
           preview: {
             select: { title: 'name', subtitle: 'balanceLabel' },

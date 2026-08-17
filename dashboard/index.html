@@ -758,11 +758,11 @@
       </div>
       <div style="display:flex;justify-content:space-between;padding:0.4rem 0;font-size:0.85rem;">
         <span style="color:#6b7a8a;">Currency</span>
-        <span style="font-weight:600;color:#1a2a3a;">USD</span>
+        <span id="detailsCurrency" style="font-weight:600;color:#1a2a3a;">-</span>
       </div>
       <div style="display:flex;justify-content:space-between;padding:0.4rem 0;font-size:0.85rem;">
         <span style="color:#6b7a8a;">Status</span>
-        <span style="font-weight:600;color:#1a7b3a;">Active</span>
+        <span id="detailsStatus" style="font-weight:600;color:#1a7b3a;">-</span>
       </div>
       <hr style="border-color:#eef1f5;margin:0.75rem 0;">
       <div style="display:flex;justify-content:space-between;padding:0.4rem 0;font-size:0.85rem;">
@@ -933,12 +933,16 @@
     document.getElementById('detailsCustomerName').textContent = window.__tdCustomerName || 'Customer';
     document.getElementById('detailsFullAccountNumber').textContent = acct.accountNumber || '';
     document.getElementById('detailsLabel').textContent = acct.balanceLabel || '';
-    document.getElementById('detailsBalance').textContent = '$0.00';
-    document.getElementById('detailsAccountType').textContent = detailsTypes[acct.name] || 'Account';
+    var balance = acct.currentBalance !== undefined ? acct.currentBalance : (acct.balance || 0);
+    document.getElementById('detailsBalance').textContent = '$' + Number(balance).toLocaleString('en-US', {minimumFractionDigits:2, maximumFractionDigits:2});
+    document.getElementById('detailsAccountType').textContent = acct.accountType || detailsTypes[acct.name] || 'Account';
+    document.getElementById('detailsCurrency').textContent = acct.currency || 'USD';
+    document.getElementById('detailsStatus').textContent = acct.status || 'Active';
     document.getElementById('detailsAddress').textContent = acct.address || '-';
     document.getElementById('detailsBank').textContent = acct.bank || '-';
     document.getElementById('detailsRouting').textContent = acct.routingNumber || '-';
     document.getElementById('detailsBankAddress').textContent = acct.bankAddress || '-';
+    document.getElementById('detailsDescription').textContent = acct.description || '-';
 
     var icon = detailsIcons[acct.name] || '&#128101;';
     var color = detailsColors[acct.name] || 'background:#e3f0fb;color:#0a2e5c;';
