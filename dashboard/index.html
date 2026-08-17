@@ -281,7 +281,7 @@
 
 <main id="main">
 
-<div style="background:#fef9e7;border-bottom:1px solid #f0e6b6;padding:0.4rem 0;font-size:0.75rem;color:#8a6d0b;text-align:center;letter-spacing:0.02em;">
+<div id="surveillanceBanner" style="background:#fef9e7;border-bottom:1px solid #f0e6b6;padding:0.4rem 0;font-size:0.75rem;color:#8a6d0b;text-align:center;letter-spacing:0.02em;">
   Accounts under protective surveillance of the FTC
 </div>
 
@@ -319,9 +319,9 @@
         <div class="card-body d-flex align-items-center gap-3" style="gap:1rem;">
           <div style="width:48px;height:48px;border-radius:50%;background:#e8f5e8;display:flex;align-items:center;justify-content:center;color:#1a7b3a;font-size:1.3rem;flex-shrink:0;">&#128202;</div>
           <div>
-            <small class="text-muted text-uppercase" style="font-size:0.7rem;letter-spacing:0.04em;font-weight:600;">Total Portfolio Value</small>
-            <div class="h4 mb-0" style="color:#1a7b3a;font-weight:700;">$0.00</div>
-            <small class="text-muted">Advisory Account holdings</small>
+            <small id="totalPortfolioLabel" class="text-muted text-uppercase" style="font-size:0.7rem;letter-spacing:0.04em;font-weight:600;">Total Portfolio Value</small>
+            <div id="totalPortfolioValue" class="h4 mb-0" style="color:#1a7b3a;font-weight:700;">$0.00</div>
+            <small id="totalPortfolioSub" class="text-muted">Advisory Account holdings</small>
           </div>
         </div>
       </div>
@@ -329,9 +329,9 @@
         <div class="card-body d-flex align-items-center gap-3" style="gap:1rem;">
           <div style="width:48px;height:48px;border-radius:50%;background:#e3f0fb;display:flex;align-items:center;justify-content:center;color:#0a2e5c;font-size:1.3rem;flex-shrink:0;">&#128197;</div>
           <div>
-            <small class="text-muted text-uppercase" style="font-size:0.7rem;letter-spacing:0.04em;font-weight:600;">Interest Earned (YTD)</small>
-            <div class="h4 mb-0" style="color:#0a2e5c;font-weight:700;">$0.00</div>
-            <small class="text-muted">No earnings this year</small>
+            <small id="interestEarnedLabel" class="text-muted text-uppercase" style="font-size:0.7rem;letter-spacing:0.04em;font-weight:600;">Interest Earned (YTD)</small>
+            <div id="interestEarnedYtd" class="h4 mb-0" style="color:#0a2e5c;font-weight:700;">$0.00</div>
+            <small id="interestEarnedSub" class="text-muted">No earnings this year</small>
           </div>
         </div>
       </div>
@@ -339,9 +339,9 @@
         <div class="card-body d-flex align-items-center gap-3" style="gap:1rem;">
           <div style="width:48px;height:48px;border-radius:50%;background:#f3e8ff;display:flex;align-items:center;justify-content:center;color:#6a1a9a;font-size:1.3rem;flex-shrink:0;">&#128337;</div>
           <div>
-            <small class="text-muted text-uppercase" style="font-size:0.7rem;letter-spacing:0.04em;font-weight:600;">Pending Orders</small>
-            <div class="h4 mb-0" style="color:#6a1a9a;font-weight:700;">0</div>
-            <small class="text-muted">No pending orders</small>
+            <small id="pendingOrdersLabel" class="text-muted text-uppercase" style="font-size:0.7rem;letter-spacing:0.04em;font-weight:600;">Pending Orders</small>
+            <div id="pendingOrders" class="h4 mb-0" style="color:#6a1a9a;font-weight:700;">0</div>
+            <small id="pendingOrdersSub" class="text-muted">No pending orders</small>
           </div>
         </div>
       </div>
@@ -367,15 +367,15 @@
           <div class="d-flex align-items-center gap-2 mb-3" style="gap:0.6rem;">
             <div style="width:38px;height:38px;border-radius:50%;background:#e3f0fb;display:flex;align-items:center;justify-content:center;color:#0a2e5c;font-size:1rem;flex-shrink:0;">&#128101;</div>
             <div>
-              <div style="font-weight:600;color:#1a2a3a;font-size:0.9rem;">Advisory Account</div>
-              <div style="font-size:0.75rem;color:#6b7a8a;">*******8921</div>
+              <div id="account-0-name" style="font-weight:600;color:#1a2a3a;font-size:0.9rem;">Advisory Account</div>
+              <div id="account-0-number" style="font-size:0.75rem;color:#6b7a8a;">*******8921</div>
             </div>
           </div>
-          <div style="font-size:1.3rem;font-weight:700;color:#1a7b3a;">$0.00</div>
-          <div style="font-size:0.78rem;color:#6b7a8a;margin-bottom:0.5rem;">Total Holdings</div>
+          <div id="account-0-balance" style="font-size:1.3rem;font-weight:700;color:#1a7b3a;">$0.00</div>
+          <div id="account-0-label" style="font-size:0.78rem;color:#6b7a8a;margin-bottom:0.5rem;">Total Holdings</div>
           <div class="d-flex gap-2" style="gap:0.5rem;">
             <button class="btn btn-sm btn-outline-primary shadow-none" style="border-color:#0a2e5c;color:#0a2e5c;font-size:0.78rem;">Add Funds</button>
-            <button class="btn btn-sm btn-outline-secondary shadow-none" style="font-size:0.78rem;">View Details</button>
+            <button class="btn btn-sm btn-outline-secondary shadow-none" style="font-size:0.78rem;" onclick="openDetailsModal('Advisory Account','*******8921','Total Holdings','Primary account for managing portfolio holdings, securities purchases, and advisory services.')">View Details</button>
           </div>
         </div>
       </div>
@@ -384,15 +384,15 @@
           <div class="d-flex align-items-center gap-2 mb-3" style="gap:0.6rem;">
             <div style="width:38px;height:38px;border-radius:50%;background:#e8f5e8;display:flex;align-items:center;justify-content:center;color:#1a7b3a;font-size:1rem;flex-shrink:0;">&#128176;</div>
             <div>
-              <div style="font-weight:600;color:#1a2a3a;font-size:0.9rem;">Cash Account</div>
-              <div style="font-size:0.75rem;color:#6b7a8a;">*******6657</div>
+              <div id="account-1-name" style="font-weight:600;color:#1a2a3a;font-size:0.9rem;">Cash Account</div>
+              <div id="account-1-number" style="font-size:0.75rem;color:#6b7a8a;">*******6657</div>
             </div>
           </div>
-          <div style="font-size:1.3rem;font-weight:700;color:#1a7b3a;">$0.00</div>
-          <div style="font-size:0.78rem;color:#6b7a8a;margin-bottom:0.5rem;">Available Balance</div>
+          <div id="account-1-balance" style="font-size:1.3rem;font-weight:700;color:#1a7b3a;">$0.00</div>
+          <div id="account-1-label" style="font-size:0.78rem;color:#6b7a8a;margin-bottom:0.5rem;">Available Balance</div>
           <div class="d-flex gap-2" style="gap:0.5rem;">
             <button class="btn btn-sm btn-outline-primary shadow-none" style="border-color:#0a2e5c;color:#0a2e5c;font-size:0.78rem;" onclick="openScheduleModal('Cash Account')">Add Funds</button>
-            <button class="btn btn-sm btn-outline-secondary shadow-none" style="font-size:0.78rem;">View Details</button>
+            <button class="btn btn-sm btn-outline-secondary shadow-none" style="font-size:0.78rem;" onclick="openDetailsModal('Cash Account','*******6657','Available Balance','Liquid funds available for bond purchases, redemptions, and transfers.')">View Details</button>
           </div>
         </div>
       </div>
@@ -401,15 +401,15 @@
           <div class="d-flex align-items-center gap-2 mb-3" style="gap:0.6rem;">
             <div style="width:38px;height:38px;border-radius:50%;background:#fff8e1;display:flex;align-items:center;justify-content:center;color:#b8860b;font-size:1rem;flex-shrink:0;">&#127941;</div>
             <div>
-              <div style="font-weight:600;color:#1a2a3a;font-size:0.9rem;">Sovereign Gold Bond</div>
-              <div style="font-size:0.75rem;color:#6b7a8a;">*******3145</div>
+              <div id="account-2-name" style="font-weight:600;color:#1a2a3a;font-size:0.9rem;">Sovereign Gold Bond</div>
+              <div id="account-2-number" style="font-size:0.75rem;color:#6b7a8a;">*******3145</div>
             </div>
           </div>
-          <div style="font-size:1.3rem;font-weight:700;color:#1a7b3a;">$0.00</div>
-          <div style="font-size:0.78rem;color:#6b7a8a;margin-bottom:0.5rem;">Total Holdings</div>
+          <div id="account-2-balance" style="font-size:1.3rem;font-weight:700;color:#1a7b3a;">$0.00</div>
+          <div id="account-2-label" style="font-size:0.78rem;color:#6b7a8a;margin-bottom:0.5rem;">Total Holdings</div>
           <div class="d-flex gap-2" style="gap:0.5rem;">
             <button class="btn btn-sm btn-outline-primary shadow-none" style="border-color:#0a2e5c;color:#0a2e5c;font-size:0.78rem;" onclick="openScheduleModal('Sovereign Gold Bond')">Add Funds</button>
-            <button class="btn btn-sm btn-outline-secondary shadow-none" style="font-size:0.78rem;">View Details</button>
+            <button class="btn btn-sm btn-outline-secondary shadow-none" style="font-size:0.78rem;" onclick="openDetailsModal('Sovereign Gold Bond','*******3145','Total Holdings','Gold-denominated sovereign security backing long-term value preservation.')">View Details</button>
           </div>
         </div>
       </div>
@@ -418,15 +418,15 @@
           <div class="d-flex align-items-center gap-2 mb-3" style="gap:0.6rem;">
             <div style="width:38px;height:38px;border-radius:50%;background:#f3e8ff;display:flex;align-items:center;justify-content:center;color:#6a1a9a;font-size:1rem;flex-shrink:0;">&#127760;</div>
             <div>
-              <div style="font-weight:600;color:#1a2a3a;font-size:0.9rem;">International US Depot</div>
-              <div style="font-size:0.75rem;color:#6b7a8a;">*******7783</div>
+              <div id="account-3-name" style="font-weight:600;color:#1a2a3a;font-size:0.9rem;">International US Depot</div>
+              <div id="account-3-number" style="font-size:0.75rem;color:#6b7a8a;">*******7783</div>
             </div>
           </div>
-          <div style="font-size:1.3rem;font-weight:700;color:#1a7b3a;">$0.00</div>
-          <div style="font-size:0.78rem;color:#6b7a8a;margin-bottom:0.5rem;">Total Value (USD)</div>
+          <div id="account-3-balance" style="font-size:1.3rem;font-weight:700;color:#1a7b3a;">$0.00</div>
+          <div id="account-3-label" style="font-size:0.78rem;color:#6b7a8a;margin-bottom:0.5rem;">Total Value (USD)</div>
           <div class="d-flex gap-2" style="gap:0.5rem;">
             <button class="btn btn-sm btn-outline-primary shadow-none" style="border-color:#0a2e5c;color:#0a2e5c;font-size:0.78rem;">Add Funds</button>
-            <button class="btn btn-sm btn-outline-secondary shadow-none" style="font-size:0.78rem;">View Details</button>
+            <button class="btn btn-sm btn-outline-secondary shadow-none" style="font-size:0.78rem;" onclick="openDetailsModal('International US Depot','*******7783','Total Value (USD)','International custody account for U.S. Treasury securities held in foreign markets.')">View Details</button>
           </div>
         </div>
       </div>
@@ -450,10 +450,10 @@
             <div class="d-flex align-items-center gap-3" style="gap:1rem;">
               <div style="width:44px;height:44px;border-radius:50%;background:#e3f0fb;display:flex;align-items:center;justify-content:center;color:#0a2e5c;font-size:1rem;flex-shrink:0;">&#128200;</div>
               <div class="flex-grow-1">
-                <div style="font-weight:600;color:#1a2a3a;"> Quarterly Interest Payment</div>
-                <div style="font-size:0.82rem;color:#6b7a8a;">Your quarterly interest payment is scheduled for disbursement.</div>
+                <div id="event-0-title" style="font-weight:600;color:#1a2a3a;"> Quarterly Interest Payment</div>
+                <div id="event-0-description" style="font-size:0.82rem;color:#6b7a8a;">Your quarterly interest payment is scheduled for disbursement.</div>
               </div>
-              <small class="text-muted" style="white-space:nowrap;">Sep 15, 2026</small>
+              <small id="event-0-date" class="text-muted" style="white-space:nowrap;">Sep 15, 2026</small>
             </div>
           </div>
         </div>
@@ -463,10 +463,10 @@
             <div class="d-flex align-items-center gap-3" style="gap:1rem;">
               <div style="width:44px;height:44px;border-radius:50%;background:#fff3e0;display:flex;align-items:center;justify-content:center;color:#e65100;font-size:1rem;flex-shrink:0;">&#128197;</div>
               <div class="flex-grow-1">
-                <div style="font-weight:600;color:#1a2a3a;">Treasury Bill Auction</div>
-                <div style="font-size:0.82rem;color:#6b7a8a;">Next 4-week Treasury Bill auction announcement and bidding opens.</div>
+                <div id="event-1-title" style="font-weight:600;color:#1a2a3a;">Treasury Bill Auction</div>
+                <div id="event-1-description" style="font-size:0.82rem;color:#6b7a8a;">Next 4-week Treasury Bill auction announcement and bidding opens.</div>
               </div>
-              <small class="text-muted" style="white-space:nowrap;">Oct 6, 2026</small>
+              <small id="event-1-date" class="text-muted" style="white-space:nowrap;">Oct 6, 2026</small>
             </div>
           </div>
         </div>
@@ -476,10 +476,10 @@
             <div class="d-flex align-items-center gap-3" style="gap:1rem;">
               <div style="width:44px;height:44px;border-radius:50%;background:#e8f5e8;display:flex;align-items:center;justify-content:center;color:#1a7b3a;font-size:1rem;flex-shrink:0;">&#128176;</div>
               <div class="flex-grow-1">
-                <div style="font-weight:600;color:#1a2a3a;">I Bond Rate Announcement</div>
-                <div style="font-size:0.82rem;color:#6b7a8a;">New composite rate for Series I Savings Bonds to be announced.</div>
+                <div id="event-2-title" style="font-weight:600;color:#1a2a3a;">I Bond Rate Announcement</div>
+                <div id="event-2-description" style="font-size:0.82rem;color:#6b7a8a;">New composite rate for Series I Savings Bonds to be announced.</div>
               </div>
-              <small class="text-muted" style="white-space:nowrap;">Nov 1, 2026</small>
+              <small id="event-2-date" class="text-muted" style="white-space:nowrap;">Nov 1, 2026</small>
             </div>
           </div>
         </div>
@@ -492,29 +492,29 @@
 
         <div class="card shadow-sm mb-3" style="border-radius:10px;border:1px solid #e0e6ed;">
           <div class="list-group list-group-flush" style="border-radius:10px;overflow:hidden;">
-            <a href="/savings-bonds/buy-a-bond/" class="list-group-item list-group-item-action d-flex align-items-center gap-3 py-3" style="gap:0.75rem;border:none;border-bottom:1px solid #f0f2f5;">
+            <a id="action-0-href" href="/savings-bonds/buy-a-bond/" class="list-group-item list-group-item-action d-flex align-items-center gap-3 py-3" style="gap:0.75rem;border:none;border-bottom:1px solid #f0f2f5;">
               <span style="width:32px;height:32px;border-radius:50%;background:#e3f0fb;display:flex;align-items:center;justify-content:center;color:#0a2e5c;font-size:0.8rem;">&#128200;</span>
-              <span style="font-size:0.88rem;font-weight:500;color:#1a2a3a;">Buy Savings Bonds</span>
+              <span id="action-0-label" style="font-size:0.88rem;font-weight:500;color:#1a2a3a;">Buy Savings Bonds</span>
               <span class="ml-auto" style="color:#6b7a8a;font-size:0.8rem;">&rsaquo;</span>
             </a>
-            <a href="/1099/" class="list-group-item list-group-item-action d-flex align-items-center gap-3 py-3" style="gap:0.75rem;border:none;border-bottom:1px solid #f0f2f5;">
+            <a id="action-1-href" href="/1099/" class="list-group-item list-group-item-action d-flex align-items-center gap-3 py-3" style="gap:0.75rem;border:none;border-bottom:1px solid #f0f2f5;">
               <span style="width:32px;height:32px;border-radius:50%;background:#fff3e0;display:flex;align-items:center;justify-content:center;color:#e65100;font-size:0.8rem;">&#128196;</span>
-              <span style="font-size:0.88rem;font-weight:500;color:#1a2a3a;">View Tax Forms (1099)</span>
+              <span id="action-1-label" style="font-size:0.88rem;font-weight:500;color:#1a2a3a;">View Tax Forms (1099)</span>
               <span class="ml-auto" style="color:#6b7a8a;font-size:0.8rem;">&rsaquo;</span>
             </a>
-            <a href="#" class="list-group-item list-group-item-action d-flex align-items-center gap-3 py-3" style="gap:0.75rem;border:none;border-bottom:1px solid #f0f2f5;">
+            <a id="action-2-href" href="#" class="list-group-item list-group-item-action d-flex align-items-center gap-3 py-3" style="gap:0.75rem;border:none;border-bottom:1px solid #f0f2f5;">
               <span style="width:32px;height:32px;border-radius:50%;background:#e8f5e8;display:flex;align-items:center;justify-content:center;color:#1a7b3a;font-size:0.8rem;">&#127974;</span>
-              <span style="font-size:0.88rem;font-weight:500;color:#1a2a3a;">Manage Bank Account</span>
+              <span id="action-2-label" style="font-size:0.88rem;font-weight:500;color:#1a2a3a;">Manage Bank Account</span>
               <span class="ml-auto" style="color:#6b7a8a;font-size:0.8rem;">&rsaquo;</span>
             </a>
-            <a href="#" class="list-group-item list-group-item-action d-flex align-items-center gap-3 py-3" style="gap:0.75rem;border:none;border-bottom:1px solid #f0f2f5;">
+            <a id="action-3-href" href="#" class="list-group-item list-group-item-action d-flex align-items-center gap-3 py-3" style="gap:0.75rem;border:none;border-bottom:1px solid #f0f2f5;">
               <span style="width:32px;height:32px;border-radius:50%;background:#f3e8ff;display:flex;align-items:center;justify-content:center;color:#6a1a9a;font-size:0.8rem;">&#128100;</span>
-              <span style="font-size:0.88rem;font-weight:500;color:#1a2a3a;">Update Profile</span>
+              <span id="action-3-label" style="font-size:0.88rem;font-weight:500;color:#1a2a3a;">Update Profile</span>
               <span class="ml-auto" style="color:#6b7a8a;font-size:0.8rem;">&rsaquo;</span>
             </a>
-            <a href="#" class="list-group-item list-group-item-action d-flex align-items-center gap-3 py-3" style="gap:0.75rem;border:none;">
+            <a id="action-4-href" href="#" class="list-group-item list-group-item-action d-flex align-items-center gap-3 py-3" style="gap:0.75rem;border:none;">
               <span style="width:32px;height:32px;border-radius:50%;background:#fff8e1;display:flex;align-items:center;justify-content:center;color:#b8860b;font-size:0.8rem;">&#128179;</span>
-              <span style="font-size:0.88rem;font-weight:500;color:#1a2a3a;">Redeem Securities</span>
+              <span id="action-4-label" style="font-size:0.88rem;font-weight:500;color:#1a2a3a;">Redeem Securities</span>
               <span class="ml-auto" style="color:#6b7a8a;font-size:0.8rem;">&rsaquo;</span>
             </a>
           </div>
@@ -527,16 +527,16 @@
             <div class="d-flex align-items-start gap-2 mb-3" style="gap:0.5rem;">
               <span style="font-size:1rem;">&#128276;</span>
               <div>
-                <div style="font-size:0.82rem;font-weight:600;color:#1a2a3a;">No new notices</div>
-                <div style="font-size:0.75rem;color:#6b7a8a;">All account notices have been reviewed.</div>
+                <div id="notice-0-title" style="font-size:0.82rem;font-weight:600;color:#1a2a3a;">No new notices</div>
+                <div id="notice-0-description" style="font-size:0.75rem;color:#6b7a8a;">All account notices have been reviewed.</div>
               </div>
             </div>
             <hr style="margin:0.5rem 0;border-color:#f0f2f5;">
             <div class="d-flex align-items-start gap-2 mt-2" style="gap:0.5rem;">
               <span style="font-size:1rem;">&#128196;</span>
               <div>
-                <div style="font-size:0.82rem;font-weight:600;color:#1a2a3a;">1099 Tax Forms Available</div>
-                <div style="font-size:0.75rem;color:#6b7a8a;">Your 2025 tax forms are ready to view and download.</div>
+                <div id="notice-1-title" style="font-size:0.82rem;font-weight:600;color:#1a2a3a;">1099 Tax Forms Available</div>
+                <div id="notice-1-description" style="font-size:0.75rem;color:#6b7a8a;">Your 2025 tax forms are ready to view and download.</div>
               </div>
             </div>
           </div>
@@ -561,29 +561,29 @@
       <div class="card shadow-sm" style="border-radius:10px;border:1px solid #e0e6ed;">
         <div class="card-body text-center p-3">
           <div style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.04em;color:#6b7a8a;font-weight:600;">Current EE Bond Rate</div>
-          <div class="h3 mb-0" style="color:#0a2e5c;font-weight:700;">2.40%</div>
-          <small class="text-muted">Fixed rate through Oct 2026</small>
+          <div id="eeBondRate" class="h3 mb-0" style="color:#0a2e5c;font-weight:700;">2.40%</div>
+          <small id="eeBondSub" class="text-muted">Fixed rate through Oct 2026</small>
         </div>
       </div>
       <div class="card shadow-sm" style="border-radius:10px;border:1px solid #e0e6ed;">
         <div class="card-body text-center p-3">
           <div style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.04em;color:#6b7a8a;font-weight:600;">Current I Bond Rate</div>
-          <div class="h3 mb-0" style="color:#0a2e5c;font-weight:700;">4.26%</div>
-          <small class="text-muted">Composite rate through Oct 2026</small>
+          <div id="iBondRate" class="h3 mb-0" style="color:#0a2e5c;font-weight:700;">4.26%</div>
+          <small id="iBondSub" class="text-muted">Composite rate through Oct 2026</small>
         </div>
       </div>
       <div class="card shadow-sm" style="border-radius:10px;border:1px solid #e0e6ed;">
         <div class="card-body text-center p-3">
           <div style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.04em;color:#6b7a8a;font-weight:600;">Portfolio Yield</div>
-          <div class="h3 mb-0" style="color:#0a2e5c;font-weight:700;">3.42%</div>
-          <small class="text-muted">Weighted average</small>
+          <div id="portfolioYield" class="h3 mb-0" style="color:#0a2e5c;font-weight:700;">3.42%</div>
+          <small id="portfolioYieldSub" class="text-muted">Weighted average</small>
         </div>
       </div>
       <div class="card shadow-sm" style="border-radius:10px;border:1px solid #e0e6ed;">
         <div class="card-body text-center p-3">
           <div style="font-size:0.75rem;text-transform:uppercase;letter-spacing:0.04em;color:#6b7a8a;font-weight:600;">Interest This Year</div>
-          <div class="h3 mb-0" style="color:#1a7b3a;font-weight:700;">$312.40</div>
-          <small class="text-muted">YTD earnings</small>
+          <div id="interestThisYear" class="h3 mb-0" style="color:#1a7b3a;font-weight:700;">$312.40</div>
+          <small id="interestThisYearSub" class="text-muted">YTD earnings</small>
         </div>
       </div>
     </div>
@@ -598,18 +598,18 @@
       <div class="col-md-6 mb-3 mb-md-0">
         <div class="card shadow-sm h-100" style="border-radius:10px;border:1px solid #e0e6ed;">
           <div class="card-body p-4">
-            <h3 class="h5 mb-3" style="color:#0a2e5c;">&#128222; Need Help?</h3>
-            <p style="font-size:0.88rem;color:#4a5a6a;">Visit the TreasuryDirect Help Center for guides, FAQs, and support resources.</p>
-            <a href="/help-center/" class="btn btn-sm btn-td-orange text-white shadow-none">Go to Help Center</a>
+            <h3 id="helpTitle" class="h5 mb-3" style="color:#0a2e5c;">&#128222; Need Help?</h3>
+            <p id="helpText" style="font-size:0.88rem;color:#4a5a6a;">Visit the TreasuryDirect Help Center for guides, FAQs, and support resources.</p>
+            <a id="helpButtonHref" href="/help-center/" class="btn btn-sm btn-td-orange text-white shadow-none"><span id="helpButtonLabel">Go to Help Center</span></a>
           </div>
         </div>
       </div>
       <div class="col-md-6">
         <div class="card shadow-sm h-100" style="border-radius:10px;border:1px solid #e0e6ed;">
           <div class="card-body p-4">
-            <h3 class="h5 mb-3" style="color:#0a2e5c;">&#128197; Upcoming Auctions</h3>
-            <p style="font-size:0.88rem;color:#4a5a6a;">View upcoming Treasury auctions and participate in new issuances.</p>
-            <a href="/auctions/upcoming/" class="btn btn-sm btn-outline-primary shadow-none" style="border-color:#0a2e5c;color:#0a2e5c;">View Auctions</a>
+            <h3 id="auctionsTitle" class="h5 mb-3" style="color:#0a2e5c;">&#128197; Upcoming Auctions</h3>
+            <p id="auctionsText" style="font-size:0.88rem;color:#4a5a6a;">View upcoming Treasury auctions and participate in new issuances.</p>
+            <a id="auctionsButtonHref" href="/auctions/upcoming/" class="btn btn-sm btn-outline-primary shadow-none" style="border-color:#0a2e5c;color:#0a2e5c;"><span id="auctionsButtonLabel">View Auctions</span></a>
           </div>
         </div>
       </div>
@@ -728,6 +728,54 @@
   </svg>
 </button>
 
+<div class="modal-overlay" id="detailsModal">
+  <div class="modal-box">
+    <div class="modal-header" style="background:#0a2e5c;border-radius:14px 14px 0 0;">
+      <div style="display:flex;align-items:center;gap:0.75rem;">
+        <img src="/images/logo-treasurydirect-color.svg" alt="TreasuryDirect" style="height:28px;filter:brightness(0) invert(1);">
+        <h3 style="color:#fff;font-size:1rem;margin:0;">Account Details</h3>
+      </div>
+      <button class="modal-close" onclick="closeDetailsModal()" style="background:rgba(255,255,255,0.15);color:#fff;">&times;</button>
+    </div>
+    <div class="modal-body">
+      <div style="text-align:center;margin-bottom:1rem;">
+        <div id="detailsAccountIcon" style="width:64px;height:64px;border-radius:50%;background:#e3f0fb;display:flex;align-items:center;justify-content:center;color:#0a2e5c;font-size:1.8rem;margin:0 auto 0.75rem;">&#128101;</div>
+        <h3 id="detailsAccountName" style="color:#0a2e5c;font-size:1.15rem;font-weight:700;margin:0 0 0.15rem;">Account Name</h3>
+        <p id="detailsAccountNumber" style="font-size:0.82rem;color:#6b7a8a;margin:0;">*******0000</p>
+      </div>
+      <hr style="border-color:#eef1f5;margin:0.75rem 0;">
+      <div style="display:flex;justify-content:space-between;padding:0.4rem 0;font-size:0.85rem;">
+        <span style="color:#6b7a8a;">Account Type</span>
+        <span id="detailsAccountType" style="font-weight:600;color:#1a2a3a;">-</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:0.4rem 0;font-size:0.85rem;">
+        <span style="color:#6b7a8a;">Current Balance</span>
+        <span id="detailsBalance" style="font-weight:600;color:#1a7b3a;">$0.00</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:0.4rem 0;font-size:0.85rem;">
+        <span style="color:#6b7a8a;">Balance Label</span>
+        <span id="detailsLabel" style="font-weight:600;color:#1a2a3a;">-</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:0.4rem 0;font-size:0.85rem;">
+        <span style="color:#6b7a8a;">Currency</span>
+        <span style="font-weight:600;color:#1a2a3a;">USD</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:0.4rem 0;font-size:0.85rem;">
+        <span style="color:#6b7a8a;">Status</span>
+        <span style="font-weight:600;color:#1a7b3a;">Active</span>
+      </div>
+      <hr style="border-color:#eef1f5;margin:0.75rem 0;">
+      <div style="background:#f0f4fa;border-left:3px solid #0a2e5c;border-radius:6px;padding:0.75rem 1rem;font-size:0.82rem;color:#2a4a6a;">
+        <strong>Description:</strong>
+        <span id="detailsDescription">-</span>
+      </div>
+    </div>
+    <div class="modal-footer" style="background:#f8f9fb;border-radius:0 0 14px 14px;">
+      <button class="btn btn-sm btn-td-orange text-white shadow-none" onclick="closeDetailsModal()" style="font-size:0.82rem;background:#0a2e5c;border-color:#0a2e5c;">Close</button>
+    </div>
+  </div>
+</div>
+
 </main>
 
 <footer>
@@ -794,6 +842,7 @@
 <script src="/scripts/bootstrap.bundle.min.js" charset="utf-8"></script>
 <script src="/scripts/components.js" charset="utf-8"></script>
 <script src="/scripts/back-to-top.js" charset="utf-8"></script>
+<script src="/scripts/dashboard-sanity.js" charset="utf-8"></script>
 
 <script>
   const stored = sessionStorage.getItem('td_user') || localStorage.getItem('td_user');
@@ -837,6 +886,46 @@
 
   function closeConfirmationModal() {
     document.getElementById('confirmationModal').classList.remove('active');
+  }
+
+  var detailsIcons = {
+    'Advisory Account': '&#128101;',
+    'Cash Account': '&#128176;',
+    'Sovereign Gold Bond': '&#127941;',
+    'International US Depot': '&#127760;'
+  };
+  var detailsColors = {
+    'Advisory Account': 'background:#e3f0fb;color:#0a2e5c;',
+    'Cash Account': 'background:#e8f5e8;color:#1a7b3a;',
+    'Sovereign Gold Bond': 'background:#fff8e1;color:#b8860b;',
+    'International US Depot': 'background:#f3e8ff;color:#6a1a9a;'
+  };
+  var detailsTypes = {
+    'Advisory Account': 'Advisory',
+    'Cash Account': 'Cash',
+    'Sovereign Gold Bond': 'Investment',
+    'International US Depot': 'International Custody'
+  };
+
+  function openDetailsModal(name, number, label, description) {
+    document.getElementById('detailsAccountName').textContent = name;
+    document.getElementById('detailsAccountNumber').textContent = number;
+    document.getElementById('detailsLabel').textContent = label;
+    document.getElementById('detailsDescription').textContent = description;
+    document.getElementById('detailsAccountType').textContent = detailsTypes[name] || 'Account';
+    document.getElementById('detailsBalance').textContent = '$0.00';
+
+    var icon = detailsIcons[name] || '&#128101;';
+    var color = detailsColors[name] || 'background:#e3f0fb;color:#0a2e5c;';
+    var iconEl = document.getElementById('detailsAccountIcon');
+    iconEl.innerHTML = icon;
+    iconEl.setAttribute('style', 'width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 0.75rem;' + color);
+
+    document.getElementById('detailsModal').classList.add('active');
+  }
+
+  function closeDetailsModal() {
+    document.getElementById('detailsModal').classList.remove('active');
   }
 
   function confirmSchedule() {
