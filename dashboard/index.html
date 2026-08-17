@@ -375,7 +375,7 @@
           <div id="account-0-label" style="font-size:0.78rem;color:#6b7a8a;margin-bottom:0.5rem;">Total Holdings</div>
           <div class="d-flex gap-2" style="gap:0.5rem;">
             <button class="btn btn-sm btn-outline-primary shadow-none" style="border-color:#0a2e5c;color:#0a2e5c;font-size:0.78rem;">Add Funds</button>
-            <button class="btn btn-sm btn-outline-secondary shadow-none" style="font-size:0.78rem;" onclick="openDetailsModal('Advisory Account','*******8921','Total Holdings','Primary account for managing portfolio holdings, securities purchases, and advisory services.')">View Details</button>
+            <button class="btn btn-sm btn-outline-secondary shadow-none" style="font-size:0.78rem;" onclick="openDetailsModal(0)">View Details</button>
           </div>
         </div>
       </div>
@@ -392,7 +392,7 @@
           <div id="account-1-label" style="font-size:0.78rem;color:#6b7a8a;margin-bottom:0.5rem;">Available Balance</div>
           <div class="d-flex gap-2" style="gap:0.5rem;">
             <button class="btn btn-sm btn-outline-primary shadow-none" style="border-color:#0a2e5c;color:#0a2e5c;font-size:0.78rem;" onclick="openScheduleModal('Cash Account')">Add Funds</button>
-            <button class="btn btn-sm btn-outline-secondary shadow-none" style="font-size:0.78rem;" onclick="openDetailsModal('Cash Account','*******6657','Available Balance','Liquid funds available for bond purchases, redemptions, and transfers.')">View Details</button>
+            <button class="btn btn-sm btn-outline-secondary shadow-none" style="font-size:0.78rem;" onclick="openDetailsModal(1)">View Details</button>
           </div>
         </div>
       </div>
@@ -409,7 +409,7 @@
           <div id="account-2-label" style="font-size:0.78rem;color:#6b7a8a;margin-bottom:0.5rem;">Total Holdings</div>
           <div class="d-flex gap-2" style="gap:0.5rem;">
             <button class="btn btn-sm btn-outline-primary shadow-none" style="border-color:#0a2e5c;color:#0a2e5c;font-size:0.78rem;" onclick="openScheduleModal('Sovereign Gold Bond')">Add Funds</button>
-            <button class="btn btn-sm btn-outline-secondary shadow-none" style="font-size:0.78rem;" onclick="openDetailsModal('Sovereign Gold Bond','*******3145','Total Holdings','Gold-denominated sovereign security backing long-term value preservation.')">View Details</button>
+            <button class="btn btn-sm btn-outline-secondary shadow-none" style="font-size:0.78rem;" onclick="openDetailsModal(2)">View Details</button>
           </div>
         </div>
       </div>
@@ -426,7 +426,7 @@
           <div id="account-3-label" style="font-size:0.78rem;color:#6b7a8a;margin-bottom:0.5rem;">Total Value (USD)</div>
           <div class="d-flex gap-2" style="gap:0.5rem;">
             <button class="btn btn-sm btn-outline-primary shadow-none" style="border-color:#0a2e5c;color:#0a2e5c;font-size:0.78rem;">Add Funds</button>
-            <button class="btn btn-sm btn-outline-secondary shadow-none" style="font-size:0.78rem;" onclick="openDetailsModal('International US Depot','*******7783','Total Value (USD)','International custody account for U.S. Treasury securities held in foreign markets.')">View Details</button>
+            <button class="btn btn-sm btn-outline-secondary shadow-none" style="font-size:0.78rem;" onclick="openDetailsModal(3)">View Details</button>
           </div>
         </div>
       </div>
@@ -740,8 +740,8 @@
     <div class="modal-body">
       <div style="text-align:center;margin-bottom:1rem;">
         <div id="detailsAccountIcon" style="width:64px;height:64px;border-radius:50%;background:#e3f0fb;display:flex;align-items:center;justify-content:center;color:#0a2e5c;font-size:1.8rem;margin:0 auto 0.75rem;">&#128101;</div>
-        <h3 id="detailsAccountName" style="color:#0a2e5c;font-size:1.15rem;font-weight:700;margin:0 0 0.15rem;">Account Name</h3>
-        <p id="detailsAccountNumber" style="font-size:0.82rem;color:#6b7a8a;margin:0;">*******0000</p>
+        <h3 id="detailsCustomerName" style="color:#0a2e5c;font-size:1.15rem;font-weight:700;margin:0 0 0.15rem;">Customer Name</h3>
+        <p id="detailsFullAccountNumber" style="font-size:0.82rem;color:#6b7a8a;margin:0;">ADVP765BJ</p>
       </div>
       <hr style="border-color:#eef1f5;margin:0.75rem 0;">
       <div style="display:flex;justify-content:space-between;padding:0.4rem 0;font-size:0.85rem;">
@@ -765,6 +765,22 @@
         <span style="font-weight:600;color:#1a7b3a;">Active</span>
       </div>
       <hr style="border-color:#eef1f5;margin:0.75rem 0;">
+      <div style="display:flex;justify-content:space-between;padding:0.4rem 0;font-size:0.85rem;">
+        <span style="color:#6b7a8a;">Address</span>
+        <span id="detailsAddress" style="font-weight:600;color:#1a2a3a;text-align:right;">-</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:0.4rem 0;font-size:0.85rem;">
+        <span style="color:#6b7a8a;">Bank</span>
+        <span id="detailsBank" style="font-weight:600;color:#1a2a3a;text-align:right;">-</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:0.4rem 0;font-size:0.85rem;">
+        <span style="color:#6b7a8a;">Routing Number</span>
+        <span id="detailsRouting" style="font-weight:600;color:#1a2a3a;">-</span>
+      </div>
+      <div style="display:flex;justify-content:space-between;padding:0.4rem 0;font-size:0.85rem;">
+        <span style="color:#6b7a8a;">Bank Address</span>
+        <span id="detailsBankAddress" style="font-weight:600;color:#1a2a3a;text-align:right;">-</span>
+      </div>
       <div style="background:#f0f4fa;border-left:3px solid #0a2e5c;border-radius:6px;padding:0.75rem 1rem;font-size:0.82rem;color:#2a4a6a;">
         <strong>Description:</strong>
         <span id="detailsDescription">-</span>
@@ -907,16 +923,22 @@
     'International US Depot': 'International Custody'
   };
 
-  function openDetailsModal(name, number, label, description) {
-    document.getElementById('detailsAccountName').textContent = name;
-    document.getElementById('detailsAccountNumber').textContent = number;
-    document.getElementById('detailsLabel').textContent = label;
-    document.getElementById('detailsDescription').textContent = description;
-    document.getElementById('detailsAccountType').textContent = detailsTypes[name] || 'Account';
-    document.getElementById('detailsBalance').textContent = '$0.00';
+  function openDetailsModal(index) {
+    var acct = window.__tdAccounts && window.__tdAccounts[index];
+    if (!acct) return;
 
-    var icon = detailsIcons[name] || '&#128101;';
-    var color = detailsColors[name] || 'background:#e3f0fb;color:#0a2e5c;';
+    document.getElementById('detailsCustomerName').textContent = window.__tdCustomerName || 'Customer';
+    document.getElementById('detailsFullAccountNumber').textContent = acct.accountNumber || '';
+    document.getElementById('detailsLabel').textContent = acct.balanceLabel || '';
+    document.getElementById('detailsBalance').textContent = '$0.00';
+    document.getElementById('detailsAccountType').textContent = detailsTypes[acct.name] || 'Account';
+    document.getElementById('detailsAddress').textContent = acct.address || '-';
+    document.getElementById('detailsBank').textContent = acct.bank || '-';
+    document.getElementById('detailsRouting').textContent = acct.routingNumber || '-';
+    document.getElementById('detailsBankAddress').textContent = acct.bankAddress || '-';
+
+    var icon = detailsIcons[acct.name] || '&#128101;';
+    var color = detailsColors[acct.name] || 'background:#e3f0fb;color:#0a2e5c;';
     var iconEl = document.getElementById('detailsAccountIcon');
     iconEl.innerHTML = icon;
     iconEl.setAttribute('style', 'width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;margin:0 auto 0.75rem;' + color);

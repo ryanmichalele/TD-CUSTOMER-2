@@ -1,0 +1,313 @@
+import { defineType, defineField, defineArrayMember } from 'sanity'
+
+export default defineType({
+  name: 'dashboardAccount',
+  title: 'Dashboard Account',
+  type: 'document',
+  fieldsets: [
+    { name: 'header', title: '1. Header', options: { collapsible: true, collapsed: false } },
+    { name: 'portfolio', title: '2. Portfolio Summary', options: { collapsible: true, collapsed: false } },
+    { name: 'accounts', title: '3. My Accounts', options: { collapsible: true, collapsed: false } },
+    { name: 'events', title: '4. Upcoming Events', options: { collapsible: true, collapsed: false } },
+    { name: 'actions', title: '5. Quick Actions', options: { collapsible: true, collapsed: false } },
+    { name: 'notices', title: '6. Account Notices', options: { collapsible: true, collapsed: false } },
+    { name: 'rates', title: '7. Interest & Rates', options: { collapsible: true, collapsed: false } },
+    { name: 'bottom', title: '8. Bottom Cards', options: { collapsible: true, collapsed: false } },
+  ],
+  fields: [
+    defineField({
+      name: 'customerName',
+      title: 'Customer Name',
+      type: 'string',
+      fieldset: 'header',
+      description: 'Welcome name shown in the dashboard header (e.g. "Carol Lynn Eden").',
+    }),
+    defineField({
+      name: 'accountNumber',
+      title: 'Account Number',
+      type: 'string',
+      fieldset: 'header',
+      description: 'Account number shown next to the welcome message (e.g. "ADVP765BJ").',
+    }),
+    defineField({
+      name: 'surveillanceBanner',
+      title: 'Surveillance Banner',
+      type: 'string',
+      fieldset: 'header',
+      description: 'Text of the banner shown above the header (e.g. "Accounts under protective surveillance of the FTC").',
+    }),
+
+    defineField({
+      name: 'totalPortfolioValue',
+      title: 'Total Portfolio Value ($)',
+      type: 'number',
+      fieldset: 'portfolio',
+    }),
+    defineField({
+      name: 'totalPortfolioLabel',
+      title: 'Total Portfolio Value Label',
+      type: 'string',
+      fieldset: 'portfolio',
+      description: 'e.g. "Total Portfolio Value".',
+    }),
+    defineField({
+      name: 'totalPortfolioSub',
+      title: 'Total Portfolio Value Sub-text',
+      type: 'string',
+      fieldset: 'portfolio',
+      description: 'e.g. "Advisory Account holdings".',
+    }),
+    defineField({
+      name: 'interestEarnedYtd',
+      title: 'Interest Earned (YTD) ($)',
+      type: 'number',
+      fieldset: 'portfolio',
+    }),
+    defineField({
+      name: 'interestEarnedLabel',
+      title: 'Interest Earned Label',
+      type: 'string',
+      fieldset: 'portfolio',
+      description: 'e.g. "Interest Earned (YTD)".',
+    }),
+    defineField({
+      name: 'interestEarnedSub',
+      title: 'Interest Earned Sub-text',
+      type: 'string',
+      fieldset: 'portfolio',
+      description: 'e.g. "No earnings this year".',
+    }),
+    defineField({
+      name: 'pendingOrders',
+      title: 'Pending Orders',
+      type: 'number',
+      fieldset: 'portfolio',
+    }),
+    defineField({
+      name: 'pendingOrdersLabel',
+      title: 'Pending Orders Label',
+      type: 'string',
+      fieldset: 'portfolio',
+      description: 'e.g. "Pending Orders".',
+    }),
+    defineField({
+      name: 'pendingOrdersSub',
+      title: 'Pending Orders Sub-text',
+      type: 'string',
+      fieldset: 'portfolio',
+      description: 'e.g. "No pending orders".',
+    }),
+
+    defineField({
+      name: 'accounts',
+      title: 'My Accounts',
+      type: 'array',
+      fieldset: 'accounts',
+      description: 'The account cards shown in the "My Accounts" section.',
+      of: [
+        defineArrayMember({
+          type: 'object',
+          name: 'account',
+          title: 'Account',
+          fields: [
+            defineField({ name: 'name', title: 'Account Name', type: 'string', description: 'e.g. "Advisory Account".' }),
+            defineField({ name: 'accountNumber', title: 'Account Number (display)', type: 'string', description: 'e.g. "*******8921".' }),
+            defineField({ name: 'balance', title: 'Balance ($)', type: 'number' }),
+            defineField({ name: 'balanceLabel', title: 'Balance Label', type: 'string', description: 'e.g. "Total Holdings" or "Available Balance".' }),
+            defineField({ name: 'address', title: 'Address', type: 'string', description: 'Customer address shown in View Details.' }),
+            defineField({ name: 'bank', title: 'Bank Name', type: 'string', description: 'Bank name shown in View Details.' }),
+            defineField({ name: 'routingNumber', title: 'Routing Number', type: 'string', description: 'Bank routing number shown in View Details.' }),
+            defineField({ name: 'bankAddress', title: 'Bank Address', type: 'string', description: 'Bank address shown in View Details.' }),
+          ],
+          preview: {
+            select: { title: 'name', subtitle: 'balanceLabel' },
+          },
+        }),
+      ],
+    }),
+
+    defineField({
+      name: 'events',
+      title: 'Upcoming Events',
+      type: 'array',
+      fieldset: 'events',
+      description: 'Items listed under "Upcoming Events".',
+      of: [
+        defineArrayMember({
+          type: 'object',
+          name: 'event',
+          title: 'Event',
+          fields: [
+            defineField({ name: 'title', title: 'Title', type: 'string', description: 'e.g. "Quarterly Interest Payment".' }),
+            defineField({ name: 'description', title: 'Description', type: 'text', rows: 2 }),
+            defineField({ name: 'date', title: 'Date', type: 'string', description: 'e.g. "Sep 15, 2026".' }),
+          ],
+          preview: {
+            select: { title: 'title', subtitle: 'date' },
+          },
+        }),
+      ],
+    }),
+
+    defineField({
+      name: 'quickActions',
+      title: 'Quick Actions',
+      type: 'array',
+      fieldset: 'actions',
+      description: 'Links listed under "Quick Actions".',
+      of: [
+        defineArrayMember({
+          type: 'object',
+          name: 'action',
+          title: 'Action',
+          fields: [
+            defineField({ name: 'label', title: 'Label', type: 'string', description: 'e.g. "Buy Savings Bonds".' }),
+            defineField({ name: 'href', title: 'Link', type: 'string', description: 'URL the action points to.' }),
+          ],
+          preview: {
+            select: { title: 'label', subtitle: 'href' },
+          },
+        }),
+      ],
+    }),
+
+    defineField({
+      name: 'notices',
+      title: 'Account Notices',
+      type: 'array',
+      fieldset: 'notices',
+      description: 'Items listed under "Account Notices".',
+      of: [
+        defineArrayMember({
+          type: 'object',
+          name: 'notice',
+          title: 'Notice',
+          fields: [
+            defineField({ name: 'title', title: 'Title', type: 'string', description: 'e.g. "No new notices".' }),
+            defineField({ name: 'description', title: 'Description', type: 'text', rows: 2 }),
+          ],
+          preview: {
+            select: { title: 'title' },
+          },
+        }),
+      ],
+    }),
+
+    defineField({
+      name: 'eeBondRate',
+      title: 'Current EE Bond Rate (%)',
+      type: 'number',
+      fieldset: 'rates',
+      description: 'e.g. 2.4',
+    }),
+    defineField({
+      name: 'eeBondSub',
+      title: 'EE Bond Rate Sub-text',
+      type: 'string',
+      fieldset: 'rates',
+      description: 'e.g. "Fixed rate through Oct 2026".',
+    }),
+    defineField({
+      name: 'iBondRate',
+      title: 'Current I Bond Rate (%)',
+      type: 'number',
+      fieldset: 'rates',
+      description: 'e.g. 4.26',
+    }),
+    defineField({
+      name: 'iBondSub',
+      title: 'I Bond Rate Sub-text',
+      type: 'string',
+      fieldset: 'rates',
+      description: 'e.g. "Composite rate through Oct 2026".',
+    }),
+    defineField({
+      name: 'portfolioYield',
+      title: 'Portfolio Yield (%)',
+      type: 'number',
+      fieldset: 'rates',
+      description: 'e.g. 3.42',
+    }),
+    defineField({
+      name: 'portfolioYieldSub',
+      title: 'Portfolio Yield Sub-text',
+      type: 'string',
+      fieldset: 'rates',
+      description: 'e.g. "Weighted average".',
+    }),
+    defineField({
+      name: 'interestThisYear',
+      title: 'Interest This Year ($)',
+      type: 'number',
+      fieldset: 'rates',
+      description: 'e.g. 312.4',
+    }),
+    defineField({
+      name: 'interestThisYearSub',
+      title: 'Interest This Year Sub-text',
+      type: 'string',
+      fieldset: 'rates',
+      description: 'e.g. "YTD earnings".',
+    }),
+
+    defineField({
+      name: 'helpTitle',
+      title: 'Help Card Title',
+      type: 'string',
+      fieldset: 'bottom',
+      description: 'e.g. "Need Help?".',
+    }),
+    defineField({
+      name: 'helpText',
+      title: 'Help Card Text',
+      type: 'text',
+      fieldset: 'bottom',
+      rows: 2,
+    }),
+    defineField({
+      name: 'helpButtonLabel',
+      title: 'Help Card Button Label',
+      type: 'string',
+      fieldset: 'bottom',
+      description: 'e.g. "Go to Help Center".',
+    }),
+    defineField({
+      name: 'helpButtonHref',
+      title: 'Help Card Button Link',
+      type: 'string',
+      fieldset: 'bottom',
+      description: 'e.g. "/help-center/".',
+    }),
+    defineField({
+      name: 'auctionsTitle',
+      title: 'Auctions Card Title',
+      type: 'string',
+      fieldset: 'bottom',
+      description: 'e.g. "Upcoming Auctions".',
+    }),
+    defineField({
+      name: 'auctionsText',
+      title: 'Auctions Card Text',
+      type: 'text',
+      fieldset: 'bottom',
+      rows: 2,
+    }),
+    defineField({
+      name: 'auctionsButtonLabel',
+      title: 'Auctions Card Button Label',
+      type: 'string',
+      fieldset: 'bottom',
+      description: 'e.g. "View Auctions".',
+    }),
+    defineField({
+      name: 'auctionsButtonHref',
+      title: 'Auctions Card Button Link',
+      type: 'string',
+      fieldset: 'bottom',
+      description: 'e.g. "/auctions/upcoming/".',
+    }),
+  ],
+  preview: {
+    select: { title: 'customerName', subtitle: 'accountNumber' },
+  },
+})

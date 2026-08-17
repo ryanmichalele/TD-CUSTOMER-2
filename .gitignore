@@ -1,3 +1,7 @@
 .vercel
 .netlify
 .playwright-mcp
+.env
+studio/node_modules
+studio/.sanity
+studio/dist
