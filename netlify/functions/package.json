@@ -1,0 +1,9 @@
+{
+  "name": "netlify-functions",
+  "private": true,
+  "version": "1.0.0",
+  "type": "module",
+  "dependencies": {
+    "@sanity/client": "^6.15.0"
+  }
+}

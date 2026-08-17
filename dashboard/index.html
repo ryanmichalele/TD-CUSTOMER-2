@@ -995,6 +995,109 @@
     closeScheduleModal();
     document.getElementById('confirmationModal').classList.add('active');
   }
+
+  async function fetchDashboardData() {
+    try {
+      const isPreview = new URLSearchParams(window.location.search).get('preview') === 'true';
+      const url = isPreview ? '/.netlify/functions/get-dashboard?preview=true' : '/.netlify/functions/get-dashboard';
+      const res = await fetch(url);
+      if (!res.ok) throw new Error('Failed to fetch dashboard data');
+      const data = await res.json();
+      window.__tdDashboard = data;
+      populateDashboard(data);
+    } catch (err) {
+      console.warn('Dashboard data fetch failed, using static fallback:', err.message);
+    }
+  }
+
+  function formatCurrency(val) {
+    if (val === undefined || val === null) return '$0.00';
+    return '$' + Number(val).toLocaleString('en-US', { minimumFractionDigits: 2, maximumFractionDigits: 2 });
+  }
+
+  function formatNumber(val) {
+    if (val === undefined || val === null) return '0';
+    return Number(val).toLocaleString('en-US');
+  }
+
+  function formatPercent(val) {
+    if (val === undefined || val === null) return '0.00%';
+    return Number(val).toFixed(2) + '%';
+  }
+
+  function populateDashboard(d) {
+    if (!d) return;
+    window.__tdCustomerName = d.customerName;
+    window.__tdAccounts = d.accounts || [];
+
+    document.getElementById('welcomeName').textContent = d.customerName || 'Carol Lynn Eden';
+    document.getElementById('accountNumberDisplay').textContent = d.accountNumber || 'ADVP765BJ';
+    document.getElementById('surveillanceBanner').textContent = d.surveillanceBanner || 'Accounts under protective surveillance of the FTC';
+
+    document.getElementById('totalPortfolioLabel').textContent = d.totalPortfolioLabel || 'Total Portfolio Value';
+    document.getElementById('totalPortfolioValue').textContent = formatCurrency(d.totalPortfolioValue);
+    document.getElementById('totalPortfolioSub').textContent = d.totalPortfolioSub || 'Advisory Account holdings';
+
+    document.getElementById('interestEarnedLabel').textContent = d.interestEarnedLabel || 'Interest Earned (YTD)';
+    document.getElementById('interestEarnedYtd').textContent = formatCurrency(d.interestEarnedYtd);
+    document.getElementById('interestEarnedSub').textContent = d.interestEarnedSub || 'No earnings this year';
+
+    document.getElementById('pendingOrdersLabel').textContent = d.pendingOrdersLabel || 'Pending Orders';
+    document.getElementById('pendingOrders').textContent = formatNumber(d.pendingOrders);
+    document.getElementById('pendingOrdersSub').textContent = d.pendingOrdersSub || 'No pending orders';
+
+    (d.accounts || []).forEach((acct, i) => {
+      if (i > 3) return;
+      const prefix = 'account-' + i;
+      document.getElementById(prefix + '-name').textContent = acct.name || '';
+      document.getElementById(prefix + '-number').textContent = acct.accountNumber || '';
+      document.getElementById(prefix + '-balance').textContent = formatCurrency(acct.currentBalance !== undefined ? acct.currentBalance : acct.balance);
+      document.getElementById(prefix + '-label').textContent = acct.balanceLabel || '';
+    });
+
+    (d.events || []).forEach((evt, i) => {
+      if (i > 2) return;
+      document.getElementById('event-' + i + '-title').textContent = evt.title || '';
+      document.getElementById('event-' + i + '-description').textContent = evt.description || '';
+      document.getElementById('event-' + i + '-date').textContent = evt.date || '';
+    });
+
+    (d.quickActions || []).forEach((act, i) => {
+      if (i > 4) return;
+      const el = document.getElementById('action-' + i + '-href');
+      if (el) {
+        el.href = act.href || '#';
+        el.querySelector('[id$="-label"]').textContent = act.label || '';
+      }
+    });
+
+    (d.notices || []).forEach((ntc, i) => {
+      if (i > 1) return;
+      document.getElementById('notice-' + i + '-title').textContent = ntc.title || '';
+      document.getElementById('notice-' + i + '-description').textContent = ntc.description || '';
+    });
+
+    document.getElementById('eeBondRate').textContent = formatPercent(d.eeBondRate);
+    document.getElementById('eeBondSub').textContent = d.eeBondSub || '';
+    document.getElementById('iBondRate').textContent = formatPercent(d.iBondRate);
+    document.getElementById('iBondSub').textContent = d.iBondSub || '';
+    document.getElementById('portfolioYield').textContent = formatPercent(d.portfolioYield);
+    document.getElementById('portfolioYieldSub').textContent = d.portfolioYieldSub || '';
+    document.getElementById('interestThisYear').textContent = formatCurrency(d.interestThisYear);
+    document.getElementById('interestThisYearSub').textContent = d.interestThisYearSub || '';
+
+    document.getElementById('helpTitle').textContent = d.helpTitle || 'Need Help?';
+    document.getElementById('helpText').textContent = d.helpText || '';
+    document.getElementById('helpButtonLabel').textContent = d.helpButtonLabel || 'Go to Help Center';
+    document.getElementById('helpButtonHref').href = d.helpButtonHref || '/help-center/';
+
+    document.getElementById('auctionsTitle').textContent = d.auctionsTitle || 'Upcoming Auctions';
+    document.getElementById('auctionsText').textContent = d.auctionsText || '';
+    document.getElementById('auctionsButtonLabel').textContent = d.auctionsButtonLabel || 'View Auctions';
+    document.getElementById('auctionsButtonHref').href = d.auctionsButtonHref || '/auctions/upcoming/';
+  }
+
+  document.addEventListener('DOMContentLoaded', fetchDashboardData);
 </script>
 
 </body>

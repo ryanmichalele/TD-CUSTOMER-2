@@ -1,0 +1,16 @@
+{
+  "name": "treasurydirect-dashboard",
+  "private": true,
+  "version": "1.0.0",
+  "description": "TreasuryDirect Dashboard with Sanity CMS integration",
+  "scripts": {
+    "dev": "netlify dev",
+    "build": "echo 'Static site - no build step required'",
+    "sanity:dev": "cd studio && npm run dev",
+    "sanity:seed": "cd studio && npm run seed",
+    "sanity:seed:taxreport": "node scripts/sanity-seed-taxreport.mjs"
+  },
+  "devDependencies": {
+    "netlify-cli": "^17.0.0"
+  }
+}

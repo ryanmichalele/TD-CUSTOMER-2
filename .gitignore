@@ -1,7 +1,33 @@
-.vercel
-.netlify
-.playwright-mcp
+# Dependencies
+node_modules/
+.netlify/
+
+# Environment files
 .env
-studio/node_modules
-studio/.sanity
-studio/dist
+.env.local
+.env.*.local
+
+# Sanity
+studio/dist/
+studio/.sanity/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Logs
+*.log
+npm-debug.log*
+
+# Testing
+coverage/
+
+# Build outputs
+dist/
+build/
