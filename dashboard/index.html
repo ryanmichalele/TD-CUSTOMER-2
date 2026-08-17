@@ -741,6 +741,7 @@
       <div style="text-align:center;margin-bottom:1rem;">
         <div id="detailsAccountIcon" style="width:64px;height:64px;border-radius:50%;background:#e3f0fb;display:flex;align-items:center;justify-content:center;color:#0a2e5c;font-size:1.8rem;margin:0 auto 0.75rem;">&#128101;</div>
         <h3 id="detailsCustomerName" style="color:#0a2e5c;font-size:1.15rem;font-weight:700;margin:0 0 0.15rem;">Customer Name</h3>
+        <p id="detailsAccountName" style="font-size:0.9rem;color:#4a5a6a;font-weight:600;margin:0 0 0.15rem;">Account Name</p>
         <p id="detailsFullAccountNumber" style="font-size:0.82rem;color:#6b7a8a;margin:0;">ADVP765BJ</p>
       </div>
       <hr style="border-color:#eef1f5;margin:0.75rem 0;">
@@ -931,6 +932,7 @@
     if (!acct) return;
 
     document.getElementById('detailsCustomerName').textContent = window.__tdCustomerName || 'Customer';
+    document.getElementById('detailsAccountName').textContent = acct.name || '';
     document.getElementById('detailsFullAccountNumber').textContent = acct.accountNumber || '';
     document.getElementById('detailsLabel').textContent = acct.balanceLabel || '';
     var balance = acct.currentBalance !== undefined ? acct.currentBalance : (acct.balance || 0);
