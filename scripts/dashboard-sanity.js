@@ -3,7 +3,7 @@
 
   var PROJECT_ID = 'e9j72tow';
   var DATASET = 'production';
-  var API_VERSION = '2024-01-01';
+  var API_VERSION = 'v2024-01-01';
 
   function formatCurrency(value) {
     if (value === null || value === undefined || isNaN(value)) return null;
@@ -102,7 +102,7 @@
 
   function load() {
     var url = 'https://' + PROJECT_ID + '.apicdn.sanity.io/' + API_VERSION + '/data/query/' + DATASET +
-      '?query=' + encodeURIComponent('*[_id == "dashboardAccount"][0]') + '&_=' + Date.now();
+      '?query=' + encodeURIComponent('*[_id == "dashboardAccount"][0]');
     fetch(url, { method: 'GET', cache: 'no-store' })
       .then(function (res) {
         if (!res.ok) throw new Error('Sanity request failed: ' + res.status);
